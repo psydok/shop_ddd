@@ -1,0 +1,63 @@
+{
+  "version": "3.1",
+  "volumes": {
+    "postgres_data": { },
+    "nginx_data": { }
+  },
+  "services": {
+    "postgres": {
+      "image": "postgres",
+      "volumes": [
+          "postgres_data:/var/lib/postgresql/data/"
+      ],
+      "env_file": ".env",
+      "ports": [
+          "${POSTGRES_PORT}"
+      ],
+    },
+    "admin_panel": {
+      "image": "yiisoftware/yii2-php:7.4-apache",
+      "volumes": [
+          "~/.composer-docker/cache:/root/.composer/cache:delegated",
+          "./admin_panel/backend/basic:/app:delegated"
+      ],
+      "ports": [
+          "8000:80"
+      ],
+      "env_file": ".env",
+      "environment": {
+        "INSTANCE_NUM": "1",
+        "INSTANCE_NAME": "apache1"
+      },
+      "depends_on": [
+          "postgres"
+      ]
+    },
+    "front": {
+      "build": {
+        "context": "./",
+        "dockerfile": "Dockerfile-admin-front"
+      },
+      "ports": [
+          "${FRONT_PORT}"
+      ]
+    },
+    "nginx": {
+      "build": {
+        "context": "./",
+        "dockerfile": "Dockerfile-nginx"
+      },
+      "env_file": ".env",
+      "ports": [
+          "${NGINX_PORT_EXT}:${NGINX_PORT_INT}"
+      ],
+      "volumes": [
+          "nginx_data:/etc/nginx/templates"
+      ],
+      "links": [
+          "admin_panel",
+          "front"
+      ]
+    }
+  }
+}

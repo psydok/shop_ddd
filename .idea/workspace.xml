@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="DockerExecCommand">
+    <ExecCommand>
+      <option name="command" value="bash" />
+      <option name="imageId" value="sha256:9766b7b7988dd90b0cb98952e17c00949e0bdd9b1765f2947f3a1692a0b9c4f5" />
+    </ExecCommand>
+    <ExecCommand>
+      <option name="command" value="bash" />
+      <option name="imageId" value="sha256:26c8bcd8b71919f393464e595670e633e4f90c6981df4322d8c4a39332b0bd1e" />
+    </ExecCommand>
+  </component>
+  <component name="ProjectId" id="1rcUHJrpyDz25lz9tTpDekDVfDs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="Docker" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\admin_panel\backend\basic\modules\api\repositories" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\admin_panel" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.serve">
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/admin_panel/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.serve" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="" />
+      <created>1619274782886</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619274782886</updated>
+      <workItem from="1619274783980" duration="25457000" />
+      <workItem from="1619339909081" duration="273000" />
+      <workItem from="1619341083658" duration="41446000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="369" y="372" key="#Docker" timestamp="1619282225380">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="369" y="372" key="#Docker/0.0.1920.1040@0.0.1920.1040" timestamp="1619282225380" />
+    <state x="440" y="574" key="#Path_mapping" timestamp="1619282188257">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="574" key="#Path_mapping/0.0.1920.1040@0.0.1920.1040" timestamp="1619282188257" />
+    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1619393626977">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619393626977" />
+    <state x="319" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1619392542514">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="319" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619392542514" />
+    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1619389788274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619389788274" />
+    <state x="423" y="472" key="ComposerInitDialogKey" timestamp="1619369694614">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="423" y="472" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1619369694614" />
+    <state x="248" y="311" key="NewPhpClassDialog" timestamp="1619393587153">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="248" y="311" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619393587153" />
+    <state x="27" y="300" key="SettingsEditor" timestamp="1619282342105">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="27" y="300" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619282342105" />
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1619361949761">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619361949761" />
+    <state x="479" y="391" key="refactoring.ChangeSignatureDialog" timestamp="1619388821143">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="479" y="391" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619388821143" />
+    <state x="177" y="257" key="run.anything.popup" timestamp="1619376614524">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="177" y="257" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619376614524" />
+    <state x="202" y="326" width="672" height="678" key="search.everywhere.popup" timestamp="1619395789980">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="202" y="326" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619395789980" />
+  </component>
+</project>

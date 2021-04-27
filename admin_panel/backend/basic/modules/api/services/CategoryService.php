@@ -2,6 +2,7 @@
 
 namespace app\modules\api\services;
 
+use app\modules\api\dto\CategoryDto;
 use app\modules\api\models\CategoryEntity;
 use app\modules\api\repositories\CategoryRepository;
 
@@ -15,17 +16,16 @@ class CategoryService implements ServiceInterface
     }
 
     /**
-     * @param array $json_category
-     * @return array|string
+     * @param CategoryDto $dto
      */
-    public function create($json_category)
+    public function create($dto)
     {
         $newCategory = CategoryEntity::withProps(
             $this->categoryRepository::getNewId(),
-            $json_category['name']
+            $dto['name']
         );
 
-        return $this->categoryRepository->insert($newCategory);
+        $this->categoryRepository->insert($newCategory);
     }
 
     public function getAll()
@@ -44,34 +44,31 @@ class CategoryService implements ServiceInterface
 
     /**
      * @param $id
-     * @return false|int|null
      */
     public function deleteById($id)
     {
         try {
             $category = self::getById($id);
             if (is_null($category))
-                return null;
-            return $category->delete();
+                return;
+            $category->delete();
         } catch (\Throwable $e) {
-            return null;
         }
     }
 
     /**
-     * @param array $json_category
-     * @return array|string
+     * @param CategoryDto $dto
      */
-    public function update($json_category)
+    public function update($dto)
     {
-        $itemRecord = self::getById($json_category['id']);
+        $categoryRecord = self::getById($dto->id);
 
         $updatedCategory = CategoryEntity::withProps(
-            $itemRecord->id,
-            $itemRecord->name
+            $categoryRecord->id,
+            $categoryRecord->name
         );
-        $updatedCategory->setName($json_category['name']);
+        $updatedCategory->setName($dto->name);
 
-        return $this->categoryRepository->update($updatedCategory);
+        $this->categoryRepository->update($updatedCategory);
     }
 }

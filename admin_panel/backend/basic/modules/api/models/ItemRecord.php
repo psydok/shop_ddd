@@ -2,6 +2,8 @@
 
 namespace app\modules\api\models;
 
+use app\modules\api\dto\ItemDto;
+
 class ItemRecord extends BaseActionRecord
 {
     public static function tableName()
@@ -33,8 +35,14 @@ class ItemRecord extends BaseActionRecord
         ];
     }
 
-    function getDto()
+    function getDto() : ItemDto
     {
-        // TODO: Implement getDto() method.
+        $dto = new ItemDto();
+        $dto->id = $this->id;
+        $dto->name = $this->name;
+        $dto->price = $this->price;
+        $dto->img_link = $this->img_link;
+        $dto->category_id = $this->category_id;
+        return $dto;
     }
 }

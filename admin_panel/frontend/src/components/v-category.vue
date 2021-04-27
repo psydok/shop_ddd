@@ -1,6 +1,6 @@
 <template>
   <div class="v-category">
-    <h1>Категории</h1>
+    <h1>Каталог</h1>
     <div class="v-catalog__list">
       <v-category-item
           v-for="item in ITEMS"
@@ -28,13 +28,13 @@ export default {
   computed: {
     ...mapGetters([
       'CATEGORIES',
-        'ITEMS'
+      'ITEMS'
     ])
   },
   methods: {
     ...mapActions([
       'GET_CATEGORIES_FROM_API',
-        'GET_ITEMS_FROM_API'
+      'GET_ITEMS_FROM_API'
     ]),
     showChildInConsole(data) {
       console.log(data)

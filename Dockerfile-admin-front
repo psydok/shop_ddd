@@ -1,10 +1,10 @@
 FROM node:lts-alpine
-COPY ./app_admin/frontend .
-COPY ./app_admin/frontend/package.json .
-COPY ./app_admin/frontend/package-lock.json .
-RUN npm install
 RUN npm install -g http-server
-WORKDIR .
-CMD [ "npm", "run", "build" ]
-CMD [ "http-server", "dist" ]
+WORKDIR /app
+COPY ./admin_panel/frontend/package*.json ./
+RUN npm install
+COPY ./admin_panel/frontend .
+RUN npm run build
 EXPOSE 3000
+CMD [ "http-server", "dist", "-p", "3000" ]
+

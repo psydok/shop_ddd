@@ -1,7 +1,10 @@
 <template>
   <div class="v-create">
-    <h1>Добавить категорию</h1>
-    <v-create-item/>
+    <button
+        class="v-create__add_item btn" v-on:click="visible=!visible">
+      Добавить категорию
+    </button>
+    <v-create-item v-show="visible" @sendPost="showChildInConsole"/>
   </div>
 </template>
 
@@ -10,8 +13,18 @@ import vCreateItem from './v-create-item'
 
 export default {
   name: "v-create",
+  data() {
+    return {
+      visible: false
+    }
+  },
   components: {
     vCreateItem
+  },
+  methods: {
+    showChildInConsole() {
+      this.visible = !this.visible
+    }
   }
 }
 </script>

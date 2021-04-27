@@ -2,6 +2,7 @@
 
 namespace app\modules\api\controllers;
 
+use app\modules\api\models\CategoryRecord;
 use app\modules\api\models\ItemRecord;
 use app\modules\api\services\CategoryService;
 use app\modules\api\services\ItemService;
@@ -29,20 +30,54 @@ class DefaultController extends Controller
         return parent::beforeAction($action);
     }
 
-    private function checkNameTable($table)
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['corsFilter'] = [
+            'class' => \yii\filters\Cors::class,
+            'cors' => [
+                // restrict access to
+                'Origin' => ['*'],
+                // Allow  methods
+                'Access-Control-Request-Method' => ['POST', 'PUT', 'OPTIONS', 'GET', 'DELETE'],
+                // Allow only headers 'X-Wsse'
+                'Access-Control-Request-Headers' => ['*'],
+                'Access-Control-Allow-Headers' => ['Content-Type'],
+                // Allow credentials (cookies, authorization headers, etc.) to be exposed to the browser
+//                'Access-Control-Allow-Credentials' => true,
+                // Allow OPTIONS caching
+
+                'Access-Control-Max-Age' => 3600,
+                // Allow the X-Pagination-Current-Page header to be exposed to the browser.
+                'Access-Control-Expose-Headers' => ['*']
+            ],
+        ];
+        return $behaviors;
+    }
+
+    private function checkTableCategory($table)
     {
         return substr($table, 0, 7) === 'categor';
     }
 
     private static function returnBadRequest()
     {
+        Yii::$app->response->format = 'json';
         Yii::$app->response->setStatusCode(400);
-        return 'Bad Request';
+        $data['message'] = 'bad request';
+        return $data;
+    }
+
+    private static function returnSuccess()
+    {
+        Yii::$app->response->format = 'json';
+        $data['message'] = "success";
+        return $data;
     }
 
     public function actionIndex($objects)
     {
-        if ($this->checkNameTable($objects))
+        if ($this->checkTableCategory($objects))
             $data = $this->categoryService->getAll();
         else $data = $this->itemService->getAll();
         return $this->asJson($data);
@@ -51,12 +86,13 @@ class DefaultController extends Controller
     public function actionView($objects, $id)
     {
         if (!empty($id)) {
-
-            if ($this->checkNameTable($objects))
+            if ($this->checkTableCategory($objects))
                 $result = $this->categoryService->getById($id);
             else $result = $this->itemService->getById($id);
+
             if (empty($result))
                 Yii::$app->response->statusCode = 404;
+
             return $this->asJson($result);
         }
         Yii::$app->response->setStatusCode(404);
@@ -71,45 +107,44 @@ class DefaultController extends Controller
     {
         $request = Yii::$app->request;
         $rawBody = $request->getRawBody();
-        var_dump($request->post());
-//                if ($form->load(\Yii::$app->request->post()) && $form->validate()) { $form->getDto()
-//       https://elisdn.ru/blog/105/services-and-controllers
+
         if ($request->isPost && !empty($rawBody)) {
 
-            $body_json = json_decode($rawBody, true);
-
-            if ($this->checkNameTable($objects)){
-                $result = $this->categoryService->create($body_json);
-            }
-            else {
+            if ($this->checkTableCategory($objects)) {
+                $form = new CategoryRecord();
+                $service = $this->categoryService;
+            } else {
                 $form = new ItemRecord();
-                $result = $this->itemService->create($body_json);
+                $service = $this->itemService;
             }
-            if (!$result) {
-                Yii::$app->response->setStatusCode(400); // 418
-                return $result;
-            }
-            Yii::$app->response->setStatusCode(201);
-            return $result;
-        }
 
+            $body_json = json_decode($rawBody, true);
+            if ($form->load($body_json, '') && $form->validate()) {
+                $service->create($form->getDto());
+
+                Yii::$app->response->setStatusCode(201);
+                return self::returnSuccess();
+            }
+        }
         return self::returnBadRequest();
     }
 
     public function actionDelete($objects, $id)
     {
         if (!empty($id)) {
-            if ($this->checkNameTable($objects))
-                $data = $this->categoryService->deleteById($id);
-            else $data = $this->itemService->deleteById($id);
-            if (empty($data)){
-                Yii::$app->response->statusCode = 404;
-                return $objects . ' by ID ' . $id . ' not found';
+            if (Yii::$app->request->isDelete) {
+                if ($this->checkTableCategory($objects)) {
+                    $service = $this->categoryService;
+                } else {
+                    $service = $this->itemService;
+                }
 
+                $service->deleteById($id);
+
+                Yii::$app->response->setStatusCode(200);
+                return self::returnSuccess();
             }
-            return $objects . ' by ID ' . $id . ' deleted! ';
         }
-
         return self::returnBadRequest();
     }
 
@@ -121,19 +156,23 @@ class DefaultController extends Controller
 
         $request = Yii::$app->request;
         $rawBody = $request->getRawBody();
+
         if ($request->isPut && !empty($rawBody)) {
+            if ($this->checkTableCategory($objects)) {
+                $form = new CategoryRecord();
+                $service = $this->categoryService;
+            } else {
+                $form = new ItemRecord();
+                $service = $this->itemService;
+            }
             $body_json = json_decode($rawBody, true);
             $body_json['id'] = $id;
-            if ($this->checkNameTable($objects))
-                $result = $this->categoryService->update($body_json);
-            else $result = $this->itemService->update($body_json);
+            if ($form->load($body_json, '') && $form->validate()) {
+                $service->update($form->getDto());
 
-            if (!$result) {
-                Yii::$app->response->setStatusCode(418); // 418
-                return $result;
+                Yii::$app->response->setStatusCode(202);
+                return self::returnSuccess();
             }
-            Yii::$app->response->setStatusCode(202);
-            return $result;
         }
 
         return self::returnBadRequest();

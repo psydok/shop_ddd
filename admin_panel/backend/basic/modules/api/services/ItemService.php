@@ -2,6 +2,7 @@
 
 namespace app\modules\api\services;
 
+use app\modules\api\dto\ItemDto;
 use app\modules\api\models\CategoryEntity;
 use app\modules\api\repositories\ItemRepository;
 use app\modules\api\models\ItemEntity;
@@ -16,22 +17,20 @@ class ItemService implements ServiceInterface
     }
 
     /**
-     * @param array $json_item Item
-     * @return array|string
+     * @param ItemDto $dto
      */
-    public function create($json_item)
+    public function create($dto)
     {
-        $category_json = $json_item['category_id'];
-        $category = CategoryEntity::withID($category_json['id']);
+        $category = CategoryEntity::withID($dto->category_id);
         $newItem = ItemEntity::withFullProps(
             $this->itemRepository::getNewId(),
             $category,
-            $json_item['name'],
-            $json_item['price'],
-            $json_item['img_link'] ?? null
+            $dto->name,
+            $dto->price,
+            $dto->img_link ?? null
         );
 
-        return $this->itemRepository->insert($newItem);
+        $this->itemRepository->insert($newItem);
     }
 
     public function getAll()
@@ -49,33 +48,26 @@ class ItemService implements ServiceInterface
     }
 
     /**
-     * @param $id
-     * @return false|int
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
+     * @param int $id
      */
     public function deleteById($id)
     {
         try {
             $item = self::getById($id);
             if (is_null($item))
-                return null;
-            return $item->delete();
+                return;
+            $item->delete();
         } catch (\Throwable $e) {
-            return null;
 //            return $e->getMessage();
         }
     }
 
     /**
-     * @param $json_item
-     * @return array|mixed|string
+     * @param ItemDto $dto
      */
-    public function update($json_item)
+    public function update($dto)
     {
-        $category_json = $json_item['category_id'];
-
-        $itemRecord = self::getById($json_item['id']);
+        $itemRecord = self::getById($dto->id);
         $item = ItemEntity::withFullProps(
             $itemRecord->id,
             CategoryEntity::withID($itemRecord->category_id),
@@ -84,13 +76,13 @@ class ItemService implements ServiceInterface
             $itemRecord->img_link
         );
 
-        $category = CategoryEntity::withID($category_json['id']);
+        $category = CategoryEntity::withID($dto->category_id);
         $item->setCategoryId($category);
-        $item->setName($json_item['name']);
-        $item->setPrice($json_item['price']);
-        if (!empty($json_item['img_link']))
-            $item->setImgLink($category_json['id']);
+        $item->setName($dto->name);
+        $item->setPrice($dto->price);
+        if (!empty($dto->img_link))
+            $item->setImgLink($dto->img_link);
 
-        return $this->itemRepository->update($item);
+        $this->itemRepository->update($item);
     }
 }

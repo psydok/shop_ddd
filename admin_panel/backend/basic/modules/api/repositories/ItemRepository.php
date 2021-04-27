@@ -4,17 +4,19 @@ namespace app\modules\api\repositories;
 
 use app\modules\api\models\ItemEntity;
 use app\modules\api\models\ItemRecord;
+use Yii;
+use yii\db\Connection;
 
 class ItemRepository implements RepositoryInterface
 {
-    private $itemRecord;
+//    private $db;
 
-    public function __construct(ItemRecord $itemRecord)
+    public function __construct()
     {
-        $this->itemRecord = $itemRecord;
+//        $this->db = Yii::$app->getDb();
     }
 
-    public static function getNewId()
+    public static function getNewId(): int
     {
         return ItemRecord::maxId() + 1;
     }
@@ -28,11 +30,7 @@ class ItemRepository implements RepositoryInterface
             $item->category_id = $object->getCategoryId()->getId();
             $item->price = $object->getPrice();
             $item->img_link = $object->getImgLink();
-
-            if ($item->save()) {
-//                return $object->getId();
-            }
-//            return $item->errors;
+            $item->save();
         } catch (\Throwable $e) {
         }
     }
@@ -43,28 +41,24 @@ class ItemRepository implements RepositoryInterface
     public function update($object): void
     {
         try {
-            $item = $this->itemRecord::findOne(['id' => $object->getId()]);
+            $item = ItemRecord::findOne(['id' => $object->getId()]);
             $item->name = $object->getName();
             $item->category_id = $object->getCategoryId()->getId();
             $item->price = $object->getPrice();
             $item->img_link = $object->getImgLink();
-
-            if ($item->save()) {
-//                return $object->getId();
-            }
-//            var_damp( $item->errors );
+            $item->save();
         } catch (\Throwable $e) {
         }
     }
 
     public function selectById($id)
     {
-        $item = $this->itemRecord::findOne(['id' => $id]);
+        $item = ItemRecord::findOne(['id' => $id]);
         return $item;
     }
 
     public function select()
     {
-        return $this->itemRecord::find()->all();
+        return ItemRecord::find()->all();
     }
 }

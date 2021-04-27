@@ -22,13 +22,10 @@
           "./admin_panel/backend/basic:/app:delegated"
       ],
       "ports": [
-          "8000:80"
+#          "${APACHE_PORT_EXT_X}1:${APACHE_PORT_INT_X}1"
+          "${YII_POST_EXT}:${YII_POST_INT}"
       ],
       "env_file": ".env",
-      "environment": {
-        "INSTANCE_NUM": "1",
-        "INSTANCE_NAME": "apache1"
-      },
       "depends_on": [
           "postgres"
       ]
@@ -39,25 +36,25 @@
         "dockerfile": "Dockerfile-admin-front"
       },
       "ports": [
-          "${FRONT_PORT}"
-      ]
-    },
-    "nginx": {
-      "build": {
-        "context": "./",
-        "dockerfile": "Dockerfile-nginx"
-      },
-      "env_file": ".env",
-      "ports": [
-          "${NGINX_PORT_EXT}:${NGINX_PORT_INT}"
-      ],
-      "volumes": [
-          "nginx_data:/etc/nginx/templates"
-      ],
-      "links": [
-          "admin_panel",
-          "front"
+          "${FRONT_PORT}:${FRONT_PORT}"
       ]
     }
+#    ,"nginx": {
+#      "build": {
+#        "context": "./",
+#        "dockerfile": "Dockerfile-nginx"
+#      },
+#      "env_file": ".env",
+#      "ports": [
+#          "${NGINX_PORT_EXT}:${NGINX_PORT_INT}"
+#      ],
+#      "volumes": [
+#          "nginx_data:/etc/nginx/templates"
+#      ],
+#      "links": [
+#          "admin_panel",
+#          "front"
+#      ]
+#    }
   }
 }

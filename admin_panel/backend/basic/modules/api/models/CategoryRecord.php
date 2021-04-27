@@ -3,6 +3,8 @@
 
 namespace app\modules\api\models;
 
+use app\modules\api\dto\CategoryDto;
+
 class CategoryRecord extends BaseActionRecord
 {
     public static function tableName()
@@ -25,9 +27,11 @@ class CategoryRecord extends BaseActionRecord
         return $fields;
     }
 
-
-    function getDto()
+    function getDto() : CategoryDto
     {
-        // TODO: Implement getDto() method.
+        $dto = new CategoryDto();
+        $dto->id = $this->id;
+        $dto->name = $this->name;
+        return $dto;
     }
 }

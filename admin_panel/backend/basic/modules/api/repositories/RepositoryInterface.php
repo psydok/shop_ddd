@@ -7,5 +7,5 @@ interface RepositoryInterface
     public function update($object): void;
     public function selectById($id);
     public function select();
-    public static function getNewId();
+    public static function getNewId() : int;
 }

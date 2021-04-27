@@ -7,13 +7,11 @@
           <option disabled value="">Выберите один из вариантов</option>
           <option
               v-for="category in CATEGORIES"
-              :key="category.name"
-              :category_data="category"
+              :key="category.id"
+              v-text="category.name"
           />
         </select>
-
       </label>
-
     </div>
     <div class="v-create-item__inputs">
       <div>
@@ -43,13 +41,18 @@
       </div>
 
     </div>
-    <button v-on:click="addItem">Добавить</button>
+    <button class="v-create-item__send_create btn" v-on:click="addItem" @click="sendDataToParent">OK</button>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import Vuex from 'vuex'
+import axios from 'axios';
+
+Vue.use(Vuex);
+
 import {mapGetters} from "vuex";
-import {axios} from 'axios';
 
 export default {
   name: "v-create-item",
@@ -70,20 +73,19 @@ export default {
   },
   methods: {
     addItem(event) {
-      axios('http://' + window.location.host + '/api/v1/items', {
+      const data = {
+        name: this.item_name,
+        price: this.item_price,
+        category_id: this.selected,
+        img_link: this.item_img
+      };
+      axios('http://192.168.99.101:8000' + '/api/v1/items', {
         method: "POST",
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json"
         },
-        body: {
-          "name": this.item_name,
-          "price": this.item_price,
-          "category_id": {
-            "id": this.selected
-          },
-          "img_link": this.item_img
-        }
+        data: data
       })
           .then((items) => {
             alert('Sent!');
@@ -92,6 +94,9 @@ export default {
             alert('Error: ' + error);
             return error;
           })
+    },
+    sendDataToParent() {
+      this.$emit('sendPost')
     }
   }
 }

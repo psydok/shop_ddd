@@ -21,29 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile-admin-front" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile-admin-front" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/dto/CategoryDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/dto/CategoryDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/dto/ItemDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/dto/ItemDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/CategoryRecord.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/CategoryRecord.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/ItemRecord.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/ItemRecord.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/CategoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/ItemRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/ItemRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/RepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/CategoryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/CategoryService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/ItemService.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/ItemService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/ServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/ServiceInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/web/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/web/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create-item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/vuex/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/vuex/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/config/nginx.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +112,8 @@
       <workItem from="1619274783980" duration="25457000" />
       <workItem from="1619339909081" duration="273000" />
       <workItem from="1619341083658" duration="42232000" />
-      <workItem from="1619444620615" duration="34641000" />
+      <workItem from="1619444620615" duration="34720000" />
+      <workItem from="1619538378196" duration="8959000" />
     </task>
     <servers />
   </component>
@@ -145,6 +130,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="369" y="372" key="#Docker" timestamp="1619282225380">
@@ -171,22 +157,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="423" y="472" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1619369694614" />
-    <state width="1388" height="233" key="GridCell.Tab.0.bottom" timestamp="1619484050148">
+    <state width="1388" height="233" key="GridCell.Tab.0.bottom" timestamp="1619490632733">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1388" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619484050148" />
-    <state width="1388" height="233" key="GridCell.Tab.0.center" timestamp="1619484050148">
+    <state width="1388" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619490632733" />
+    <state width="1388" height="233" key="GridCell.Tab.0.center" timestamp="1619490632733">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1388" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619484050148" />
-    <state width="1388" height="233" key="GridCell.Tab.0.left" timestamp="1619484050148">
+    <state width="1388" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619490632733" />
+    <state width="1388" height="233" key="GridCell.Tab.0.left" timestamp="1619490632707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1388" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619484050148" />
-    <state width="1388" height="233" key="GridCell.Tab.0.right" timestamp="1619484050148">
+    <state width="1388" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619490632707" />
+    <state width="1388" height="233" key="GridCell.Tab.0.right" timestamp="1619490632733">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1388" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619484050148" />
+    <state width="1388" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619490632733" />
     <state x="248" y="311" key="NewPhpClassDialog" timestamp="1619393587153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

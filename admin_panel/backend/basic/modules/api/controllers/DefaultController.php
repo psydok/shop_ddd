@@ -12,7 +12,7 @@ use yii\web\Controller;
 /**
  * Default controller for the `api` module
  */
-class DefaultController extends Controller
+class DefaultController extends \yii\rest\Controller
 {
     private $itemService;
     private $categoryService;
@@ -40,13 +40,13 @@ class DefaultController extends Controller
                 'Origin' => ['*'],
                 // Allow  methods
                 'Access-Control-Request-Method' => ['POST', 'PUT', 'OPTIONS', 'GET', 'DELETE'],
+                'Access-Control-Allow-Origin' => '*',
                 // Allow only headers 'X-Wsse'
                 'Access-Control-Request-Headers' => ['*'],
                 'Access-Control-Allow-Headers' => ['Content-Type'],
                 // Allow credentials (cookies, authorization headers, etc.) to be exposed to the browser
-//                'Access-Control-Allow-Credentials' => true,
+                // 'Access-Control-Allow-Credentials' => true,
                 // Allow OPTIONS caching
-
                 'Access-Control-Max-Age' => 3600,
                 // Allow the X-Pagination-Current-Page header to be exposed to the browser.
                 'Access-Control-Expose-Headers' => ['*']

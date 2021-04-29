@@ -45,7 +45,7 @@ export default {
       this.$emit('sendName', this.item_data.name)
     },
     deleteItem(id) {
-      axios('http://192.168.99.101:8000' + '/api/v1/items/' + id, {
+      axios('http://192.168.99.101:8001' + '/api/v1/items/' + id, {
         method: "DELETE",
         headers: {
           "Accept": "application/json",

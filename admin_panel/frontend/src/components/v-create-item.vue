@@ -8,6 +8,7 @@
           <option
               v-for="category in CATEGORIES"
               :key="category.id"
+              :value="category.id"
               v-text="category.name"
           />
         </select>
@@ -79,7 +80,7 @@ export default {
         category_id: this.selected,
         img_link: this.item_img
       };
-      axios('http://192.168.99.101:8000' + '/api/v1/items', {
+      axios('http://192.168.99.101:8001' + '/api/v1/items', {
         method: "POST",
         headers: {
           "Accept": "application/json",

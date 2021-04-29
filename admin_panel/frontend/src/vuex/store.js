@@ -19,7 +19,7 @@ let store = new Vuex.Store({
     },
     actions: {
         GET_CATEGORIES_FROM_API({commit}) {
-            return axios('http://192.168.99.101:8000' + '/api/v1/categories', {
+            return axios('http://192.168.99.101:8001' + '/api/v1/categories', {
                 method: "GET",
                 headers: {
                     "Accept": "application/json",
@@ -36,7 +36,7 @@ let store = new Vuex.Store({
                 })
         },
         GET_ITEMS_FROM_API({commit}) {
-            return axios('http://192.168.99.101:8000' + '/api/v1/items', {
+            return axios('http://192.168.99.101:8001' + '/api/v1/items', {
                 method: "GET",
                 headers: {
                     "Accept": "application/json",

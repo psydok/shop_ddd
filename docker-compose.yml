@@ -18,11 +18,12 @@
     "admin_panel": {
       "image": "yiisoftware/yii2-php:7.4-apache",
       "volumes": [
+          "~/.composer:/root/.composer",
           "~/.composer-docker/cache:/root/.composer/cache:delegated",
-          "./admin_panel/backend/basic:/app:delegated"
+          "./admin_panel/backend/basic:/app:delegated",
+          "./admin_panel/backend/basic:/var/www"
       ],
       "ports": [
-#          "${APACHE_PORT_EXT_X}1:${APACHE_PORT_INT_X}1"
           "${YII_POST_EXT}:${YII_POST_INT}"
       ],
       "env_file": ".env",
@@ -39,22 +40,5 @@
           "${FRONT_PORT}:${FRONT_PORT}"
       ]
     }
-#    ,"nginx": {
-#      "build": {
-#        "context": "./",
-#        "dockerfile": "Dockerfile-nginx"
-#      },
-#      "env_file": ".env",
-#      "ports": [
-#          "${NGINX_PORT_EXT}:${NGINX_PORT_INT}"
-#      ],
-#      "volumes": [
-#          "nginx_data:/etc/nginx/templates"
-#      ],
-#      "links": [
-#          "admin_panel",
-#          "front"
-#      ]
-#    }
   }
 }

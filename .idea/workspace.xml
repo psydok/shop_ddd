@@ -20,15 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile-consumer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile-rabbit" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/SenderMessages.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/require.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-items.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-update-item.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/broker/src/Receiver.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/broker/src/receive.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/ApiModule.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/controllers/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/models/CategoryRecord.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/models/ItemRecord.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/repositories/CategoryRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/services/CategoryService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/services/ClientServiceInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile-admin-app" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/web/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/web/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/CategoryEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/CategoryEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/ItemEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/ItemEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/ItemRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/ItemRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/RepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/CategoryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/CategoryService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/ItemService.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/ItemService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-item.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create-item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/vuex/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/vuex/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-up.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker-up.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +62,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="DockerExecCommand">
     <ExecCommand>
@@ -60,7 +88,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin_panel/frontend/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client_shop/backend/basic" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="Docker" />
@@ -68,17 +96,34 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop\backend\basic" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\admin_panel\frontend\src\components" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\admin_panel\backend\basic\modules\api\repositories" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\admin_panel" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.serve">
+  <component name="RunManager" selected="Docker.docker-compose.yml.shop: Compose Deployment">
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.shop: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="shop" />
+            </list>
+          </option>
           <option name="sourceFilePath" value="docker-compose.yml" />
         </settings>
       </deployment>
@@ -97,6 +142,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.shop: Compose Deployment" />
         <item itemvalue="npm.serve" />
       </list>
     </recent_temporary>
@@ -114,6 +160,8 @@
       <workItem from="1619341083658" duration="42232000" />
       <workItem from="1619444620615" duration="34720000" />
       <workItem from="1619538378196" duration="8959000" />
+      <workItem from="1619685403454" duration="10169000" />
+      <workItem from="1619714413704" duration="39656000" />
     </task>
     <servers />
   </component>
@@ -133,58 +181,66 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="369" y="372" key="#Docker" timestamp="1619282225380">
+    <state x="369" y="372" key="#Docker" timestamp="1619714623860">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="369" y="372" key="#Docker/0.0.1920.1040@0.0.1920.1040" timestamp="1619282225380" />
+    <state x="369" y="372" key="#Docker/0.0.1920.1040@0.0.1920.1040" timestamp="1619714623860" />
     <state x="440" y="574" key="#Path_mapping" timestamp="1619282188257">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="574" key="#Path_mapping/0.0.1920.1040@0.0.1920.1040" timestamp="1619282188257" />
-    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1619393626977">
+    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1619738622185">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619393626977" />
-    <state x="319" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1619472058321">
+    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619738622185" />
+    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1619753314462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="319" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619472058321" />
-    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1619460674342">
+    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619753314462" />
+    <state x="319" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1619741334026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619460674342" />
-    <state x="423" y="472" key="ComposerInitDialogKey" timestamp="1619369694614">
+    <state x="319" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619741334026" />
+    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1619753503709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="423" y="472" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1619369694614" />
-    <state width="1388" height="233" key="GridCell.Tab.0.bottom" timestamp="1619490632733">
+    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619753503709" />
+    <state x="423" y="472" width="444" height="266" key="ComposerInitDialogKey" timestamp="1619739976662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1388" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619490632733" />
-    <state width="1388" height="233" key="GridCell.Tab.0.center" timestamp="1619490632733">
+    <state x="423" y="472" width="444" height="266" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1619739976662" />
+    <state width="1388" height="233" key="GridCell.Tab.0.bottom" timestamp="1619736269078">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1388" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619490632733" />
-    <state width="1388" height="233" key="GridCell.Tab.0.left" timestamp="1619490632707">
+    <state width="1388" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619736269078" />
+    <state width="1388" height="233" key="GridCell.Tab.0.center" timestamp="1619736269077">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1388" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619490632707" />
-    <state width="1388" height="233" key="GridCell.Tab.0.right" timestamp="1619490632733">
+    <state width="1388" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619736269077" />
+    <state width="1388" height="233" key="GridCell.Tab.0.left" timestamp="1619736269077">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1388" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619490632733" />
-    <state x="248" y="311" key="NewPhpClassDialog" timestamp="1619393587153">
+    <state width="1388" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619736269077" />
+    <state width="1388" height="233" key="GridCell.Tab.0.right" timestamp="1619736269077">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="248" y="311" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619393587153" />
+    <state width="1388" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619736269077" />
+    <state x="248" y="311" key="NewPhpClassDialog" timestamp="1619750788752">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="248" y="311" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619750788752" />
+    <state x="512" y="454" key="NewPhpFileDialog" timestamp="1619751006558">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="512" y="454" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619751006558" />
     <state x="27" y="300" key="SettingsEditor" timestamp="1619282342105">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="27" y="300" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619282342105" />
-    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1619457443764">
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1619770530822">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619457443764" />
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619770530822" />
     <state x="479" y="391" key="refactoring.ChangeSignatureDialog" timestamp="1619388821143">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

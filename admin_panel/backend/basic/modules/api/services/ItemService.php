@@ -56,7 +56,8 @@ class ItemService implements ServiceInterface
             $item = self::getById($id);
             if (is_null($item))
                 return;
-            $item->delete();
+            $this->itemRepository->delete($item);
+
         } catch (\Throwable $e) {
 //            return $e->getMessage();
         }
@@ -69,7 +70,7 @@ class ItemService implements ServiceInterface
     {
         $itemRecord = self::getById($dto->id);
         $item = ItemEntity::withFullProps(
-            $itemRecord->id,
+            $dto->id,
             CategoryEntity::withID($itemRecord->category_id),
             $itemRecord->name,
             $itemRecord->price,

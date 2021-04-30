@@ -1,0 +1,4 @@
+FROM php:7.4-cli
+COPY ./broker /usr/src/mybroker
+WORKDIR /usr/src/mybroker
+CMD ["php", "./src/receive.php"]

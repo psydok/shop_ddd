@@ -1,0 +1,3 @@
+FROM rabbitmq:management
+RUN chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
+RUN chmod -R 600 /var/lib/rabbitmq/

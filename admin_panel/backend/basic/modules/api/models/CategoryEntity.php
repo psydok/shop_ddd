@@ -51,4 +51,13 @@ class CategoryEntity
     {
         $this->name = $name;
     }
+
+    public function __toString()
+    {
+        $arr = [];
+        $arr['id' ]= $this->id;
+        $arr['name'] = $this->name;
+
+        return (string) json_encode($arr);
+    }
 }

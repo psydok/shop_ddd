@@ -2,7 +2,7 @@
   <div class="v-create">
     <button
         class="v-create__add_item btn" v-on:click="visible=!visible">
-      Добавить категорию
+      Добавить товар
     </button>
     <v-create-item v-show="visible" @sendPost="showChildInConsole"/>
   </div>

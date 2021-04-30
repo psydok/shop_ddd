@@ -55,6 +55,12 @@ class DefaultController extends \yii\rest\Controller
         return $behaviors;
     }
 
+    public function actionOptions()
+    {
+        Yii::$app->response->format = 'json';
+        Yii::$app->response->setStatusCode(200);
+    }
+
     private function checkTableCategory($table)
     {
         return substr($table, 0, 7) === 'categor';

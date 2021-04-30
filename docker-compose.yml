@@ -2,7 +2,9 @@
   "version": "3.1",
   "volumes": {
     "postgres_data": { },
-    "nginx_data": { }
+    "nginx_data": { },
+    "mongo_data": { },
+    "rabbitmq_data": { }
   },
   "services": {
     "postgres": {
@@ -28,7 +30,8 @@
       ],
       "env_file": ".env",
       "depends_on": [
-          "postgres"
+          "postgres",
+          "rabbit"
       ]
     },
     "front": {
@@ -39,6 +42,94 @@
       "ports": [
           "${FRONT_PORT}:${FRONT_PORT}"
       ]
+    },
+    "mongo": {
+      "image": "mongo",
+      "restart": "always",
+      "env_file": ".env",
+      "environment": {
+        "MONGO_INITDB_ROOT_USERNAME": "${MONGO_INITDB_ROOT_USERNAME}",
+        "MONGO_INITDB_ROOT_PASSWORD": "${MONGO_INITDB_ROOT_PASSWORD}"
+      },
+      "volumes": [
+          "mongo_data:/data/db"
+      ]
+    },
+    "mongo-express": {
+      "image": "mongo-express",
+      "restart": "always",
+      "ports": [
+          "8081:8081"
+      ],
+      "env_file": ".env",
+      "environment": {
+        "ME_CONFIG_MONGODB_ADMINUSERNAME": "${ME_CONFIG_MONGODB_ADMINUSERNAME}",
+        "ME_CONFIG_MONGODB_ADMINPASSWORD": "${ME_CONFIG_MONGODB_ADMINPASSWORD}"
+      },
+      "links": [
+          "mongo"
+      ]
+    },
+    "shop": {
+      "image": "yiisoftware/yii2-php:7.4-apache",
+      "volumes": [
+          "~/.composer:/root/.composer",
+          "~/.composer-docker/cache:/root/.composer/cache:delegated",
+          "./client_shop/backend/basic:/app:delegated",
+          "./client_shop/backend/basic:/var/www"
+      ],
+      "ports": [
+          "${YII_CLIENT_POST_EXT}:${YII_CLIENT_POST_INT}"
+      ],
+      "env_file": ".env",
+      "depends_on": [
+          "mongo",
+          "rabbit"
+      ]
+    },
+    "rabbit": {
+      "build": {
+        "context": "./",
+        "dockerfile": "Dockerfile-rabbit"
+      },
+      "env_file": ".env",
+      "hostname": "${RABBIT_HOST}",
+      "ports": [
+          "${RABBIT_PORT}:${RABBIT_PORT}",
+          "${RABBIT_PORT2}:${RABBIT_PORT2}"
+      ],
+      "volumes": [
+          "rabbitmq_data:/var/lib/rabbitmq_data/data/"
+      ],
+      "healthcheck": {
+        "test": "rabbitmq-diagnostics -q ping",
+        "interval": "5s",
+        "timeout": "15s",
+        "retries": "5"
+      }
+    },
+    "consumer": {
+      "build": {
+        "context": "./",
+        "dockerfile": "Dockerfile-consumer"
+      },
+      "restart": "always",
+      "ports": [
+          "${APACHE_PORT_EXT_X}0:${APACHE_PORT_INT_X}0"
+      ],
+      "links": [
+          "rabbit"
+      ],
+      "depends_on": [
+          "rabbit"
+      ],
+      "healthcheck": {
+        "test": "curl -sS http://${RABBIT_HOST}:${RABBIT_PORT2} || exit 1",
+        "interval": "5s",
+        "timeout": "15s",
+        "retries": "5"
+      },
+      "env_file": ".env",
     }
   }
 }

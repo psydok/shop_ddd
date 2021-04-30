@@ -30,7 +30,6 @@
                value="10"
                min="1"
                required>
-
       </div>
       <div>
         <p>Ссылка на картинку: </p>
@@ -40,7 +39,6 @@
                placeholder="https://... .jpg"
                pattern="https://.*">
       </div>
-
     </div>
     <button class="v-create-item__send_create btn" v-on:click="addItem" @click="sendDataToParent">OK</button>
   </div>
@@ -108,26 +106,21 @@ export default {
   &__inputs {
     margin-bottom: $margin*2;
   }
-
   &__inputs p {
     margin: auto;
   }
-
   &__selected {
     width: 320px;
     padding: $padding;
   }
-
   &__item {
     width: 300px;
     margin-bottom: $margin;
     padding: $padding;
   }
-
   display: block;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-
 }
 </style>

@@ -111,4 +111,15 @@ class ItemEntity
         $this->name = $name;
     }
 
+    public function __toString()
+    {
+        $arr = [];
+        $arr['id' ]= $this->id;
+        $arr['name'] = $this->name;
+        $arr['price'] = $this->price;
+        $arr['img_link'] = $this->img_link;
+        $arr['category_id'] = $this->category_id->getId();
+        return (string) json_encode($arr);
+    }
+
 }

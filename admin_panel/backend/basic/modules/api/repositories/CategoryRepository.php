@@ -52,4 +52,12 @@ class CategoryRepository implements RepositoryInterface
     {
         return CategoryRecord::maxId() + 1;
     }
+
+    /**
+     * @param CategoryRecord $object
+     */
+    public function delete($object): void
+    {
+        $object->delete();
+    }
 }

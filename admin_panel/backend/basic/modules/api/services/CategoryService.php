@@ -22,7 +22,7 @@ class CategoryService implements ServiceInterface
     {
         $newCategory = CategoryEntity::withProps(
             $this->categoryRepository::getNewId(),
-            $dto['name']
+            $dto->name
         );
 
         $this->categoryRepository->insert($newCategory);
@@ -51,7 +51,7 @@ class CategoryService implements ServiceInterface
             $category = self::getById($id);
             if (is_null($category))
                 return;
-            $category->delete();
+            $this->categoryRepository->delete($category);
         } catch (\Throwable $e) {
         }
     }

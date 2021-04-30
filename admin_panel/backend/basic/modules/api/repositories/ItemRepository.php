@@ -4,18 +4,10 @@ namespace app\modules\api\repositories;
 
 use app\modules\api\models\ItemEntity;
 use app\modules\api\models\ItemRecord;
-use Yii;
-use yii\db\Connection;
+use function app\modules\api\services\brokers\sendMessageInRabbit;
 
 class ItemRepository implements RepositoryInterface
 {
-//    private $db;
-
-    public function __construct()
-    {
-//        $this->db = Yii::$app->getDb();
-    }
-
     public static function getNewId(): int
     {
         return ItemRecord::maxId() + 1;
@@ -31,6 +23,8 @@ class ItemRepository implements RepositoryInterface
             $item->price = $object->getPrice();
             $item->img_link = $object->getImgLink();
             $item->save();
+
+            sendMessageInRabbit(["insert" => $item->getAttributes()]);
         } catch (\Throwable $e) {
         }
     }
@@ -42,11 +36,15 @@ class ItemRepository implements RepositoryInterface
     {
         try {
             $item = ItemRecord::findOne(['id' => $object->getId()]);
+            if (is_null($item))
+                return;
             $item->name = $object->getName();
             $item->category_id = $object->getCategoryId()->getId();
             $item->price = $object->getPrice();
             $item->img_link = $object->getImgLink();
             $item->save();
+
+            sendMessageInRabbit(["update" => $item->getAttributes()]);
         } catch (\Throwable $e) {
         }
     }
@@ -59,6 +57,18 @@ class ItemRepository implements RepositoryInterface
 
     public function select()
     {
-        return ItemRecord::find()->all();
+        $items = ItemRecord::find()->all();
+        return $items;
+    }
+
+    /**
+     * @param ItemRecord $object
+     */
+    public function delete($object): void
+    {
+        $object->delete();
+
+        sendMessageInRabbit(["delete" => $object->getAttributes()]);
     }
 }
+

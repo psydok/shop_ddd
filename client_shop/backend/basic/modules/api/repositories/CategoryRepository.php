@@ -4,6 +4,9 @@ namespace app\modules\api\repositories;
 
 use app\modules\api\models\CategoryRecord;
 use app\modules\api\models\ItemRecord;
+use Yii;
+use yii\mongodb\Query;
+
 
 class CategoryRepository
 {
@@ -20,6 +23,13 @@ class CategoryRepository
 
     public function select()
     {
+        $query = new Query();
+        $query->select(['name', 'status'])
+            ->from('customer')
+            ->limit(10);
+// execute the query
+        $rows = $query->all();
+        var_dump($query);
         $items = ItemRecord::find()->all();
         return $this->getStruct($items);
     }

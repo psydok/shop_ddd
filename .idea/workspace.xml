@@ -20,41 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile-consumer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile-rabbit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/SenderMessages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/require.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-items.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-update-item.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/broker/src/Receiver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/broker/src/receive.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/ApiModule.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/controllers/DefaultController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/models/CategoryRecord.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/models/ItemRecord.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/repositories/CategoryRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/services/CategoryService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/basic/modules/api/services/ClientServiceInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile-admin-app" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/CategoryEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/CategoryEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/ItemEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/ItemEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/CategoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/ItemRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/ItemRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/RepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/CategoryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/CategoryService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/ItemService.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/services/ItemService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create-item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-up.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker-up.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/backend/basic/config/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/basic/config/db.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +129,7 @@
       <workItem from="1619444620615" duration="34720000" />
       <workItem from="1619538378196" duration="8959000" />
       <workItem from="1619685403454" duration="10169000" />
-      <workItem from="1619714413704" duration="39656000" />
+      <workItem from="1619714413704" duration="41571000" />
     </task>
     <servers />
   </component>

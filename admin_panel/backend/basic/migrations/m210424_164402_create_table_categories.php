@@ -16,15 +16,6 @@ class m210424_164402_create_table_categories extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->unique()
         ]);
-        $this->insert('category', [
-            'name' => 'Cookie'
-        ]);
-        $this->insert('category', [
-            'name' => 'Tea'
-        ]);
-        $this->insert('category', [
-            'name' => 'Coffee'
-        ]);
     }
 
     /**

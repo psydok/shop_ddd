@@ -26,11 +26,6 @@ class m210424_164431_create_table_items extends Migration
             'category',
             'id',
             'CASCADE');
-        $this->insert('item', [
-            'category_id' => 3,
-            'name' => 'Green',
-            'price' => 70.0
-        ]);
     }
 
     /**

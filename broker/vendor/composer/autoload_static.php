@@ -8,6 +8,8 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
 {
     public static $files = array (
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
         '56823cacd97af379eceaf82ad00b928f' => __DIR__ . '/..' . '/phpseclib/bcmath_compat/lib/bcmath.php',
     );
 
@@ -20,9 +22,22 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
         array (
             'bcmath_compat\\' => 14,
         ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Php80\\' => 23,
+        ),
         'P' => 
         array (
             'PhpAmqpLib\\' => 11,
+            'PackageVersions\\' => 16,
+        ),
+        'M' => 
+        array (
+            'MongoDB\\' => 8,
+        ),
+        'J' => 
+        array (
+            'Jean85\\' => 7,
         ),
     );
 
@@ -35,10 +50,33 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
         array (
             0 => __DIR__ . '/..' . '/phpseclib/bcmath_compat/src',
         ),
+        'Symfony\\Polyfill\\Php80\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
         'PhpAmqpLib\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-amqplib/php-amqplib/PhpAmqpLib',
         ),
+        'PackageVersions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/package-versions-deprecated/src/PackageVersions',
+        ),
+        'MongoDB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
+        ),
+        'Jean85\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
+        ),
+    );
+
+    public static $classMap = array (
+        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -46,6 +84,7 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit23ed4534538a4f8df336005d4b853ff4::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit23ed4534538a4f8df336005d4b853ff4::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit23ed4534538a4f8df336005d4b853ff4::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/broker/vendor/jean85/pretty-package-versions" />
+      <path value="$PROJECT_DIR$/broker/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/broker/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/broker/vendor/phpseclib/bcmath_compat" />
+      <path value="$PROJECT_DIR$/broker/vendor/php-amqplib/php-amqplib" />
+      <path value="$PROJECT_DIR$/broker/vendor/composer" />
+      <path value="$PROJECT_DIR$/broker/vendor/mongodb/mongodb" />
+    </include_path>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
 </project>

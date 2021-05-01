@@ -2,43 +2,88 @@
 
 namespace brokers;
 
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Exception\AMQPTimeoutException;
 require_once __DIR__ . '/../vendor/autoload.php';
 
-//include __DIR__ . '/../objects/links.php';
+use MongoDB\Client;
+use MongoDB\Driver\Manager;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Exception\AMQPTimeoutException;
+use RecursiveArrayIterator;
+use RecursiveIteratorIterator;
+
+
 //define('INSTANCE_NAME', getenv('INSTANCE_NAME'));
 //define('AMQP_DEBUG', true);
 
 class Receiver
 {
+    private function getStruct($items)
+    {
+        $itemsByIdCategory = [];
+        $itemsByCategories = [];
+        foreach ($items as $item) {
+            $itemsByIdCategory[$item['category_id']][] = $item;
+            var_dump($item['category_id']);
+        }
+        foreach (array_keys($itemsByIdCategory) as $key) {
+            //$category = CategoryRecord::findOne(['id' => $key])->getAttributes();
+            $category['items'] = $itemsByIdCategory[$key];
+            $itemsByCategories[] = $category;
+        }
+        return $itemsByCategories;
+    }
+
     public function listen()
     {
-//        $dotenv = new Dotenv();
-//        $dotenv->load(__DIR__ . '/../config/.env');
+        $user = $_ENV['MONGODB_USER'];
+        $pwd = $_ENV['MONGODB_PASSWORD'];
+        $host = $_ENV['MONGODB_HOST'];
+        $port = $_ENV['MONGODB_PORT'];
+        $db = $_ENV['MONGODB_DB'];
+        $connect = "mongodb://${host}:${port}/";
 
-        $redis = new Redis() or die("Cannot load Redis module.");
         try {
-            $redis->connect(
-                $_ENV['REDIS_HOST'], $_ENV['REDIS_PORT']
-            );
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-            die;
-        }
+            $collection = (new Client($connect,[
+                'username' => $user,
+                'password' => $pwd,
+                'ssl' => true,
+                'authSource' => $user,
+            ], ))->test->users;
+            $insertOneResult = $collection->insertOne([
+                'username' => 'admin',
+                'email' => 'admin1@example.com',
+                'name' => 'Admin User',
+            ]);
+            printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
+            echo $insertOneResult->getInsertedId();
+            $manager = new Manager($connect);
+            $r = $manager->executeCommand($db, new \MongoDB\Driver\Command(['ping' => 1]));
+            echo $r->isDead();
+//            var_dump($manager);
+//
+//            $collection = (new Client)->test->users;
+//
 
-        $queue = $_ENV['RABBIT_QUEUE'];
-        try {
+//            printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
+//            echo $insertOneResult->getInsertedId();
+
+            $queue = $_ENV['RABBIT_QUEUE'];
             $connection = new AMQPStreamConnection(
                 $_ENV['RABBIT_HOST'],
                 $_ENV['RABBIT_PORT'],
                 $_ENV['RABBIT_USER'],
                 $_ENV['RABBIT_PASSWORD']
             );
+
         } catch (\Exception $e) {
-            echo $e->getMessage();
+            echo $e->getMessage() . '\n';
+
+            echo $e->getLine() . '\n';
+            echo $e->getTraceAsString() . '\n';
+
             die;
         }
+
         $channel = $connection->channel();
 
         $channel->queue_declare(
@@ -47,49 +92,45 @@ class Receiver
             true, # чтобы не потерять сообщения
             false,
             false);
-        $callback = function ($msg) use ($redis) {
-            echo "\n", '[x] Received ', $msg->body, "\n";
+        $items = [];
+        $callback = function ($json) use ($items) {
+            echo "\n", '[x] Received ', $json->body, "\n";
+            $object = json_decode($json->body, true);
 
-            $object = json_decode($msg->body);
-            $url = $object->{'link'};
-            $cache_key = 'url-status_' . $url;
-            $result = $redis->get($cache_key);
-            if ($result) {
-                echo $result . "\n";
-            } else {
-                if (!$object) {
-                    echo " !!!THIS IS NOT JSON ON RECEIVER!!! ";
-                    $msg->delivery_info['channel']->basic_cancel('');
-                    return;
-                } else {
-                    if (strlen($_ENV["UNI_PROXY"]) > 0) {
-                        $context = array(
-                            'http' => array(
-                                'proxy' => "tcp://" . $_ENV["UNI_PROXY"],
-                                'request_fulluri' => true
-                            ),
-                        );
-                        file_get_contents($url, False, stream_context_create($context));
-                    } else {
-                        file_get_contents($url);
-                    }
-                    // get status
-                    $result = $http_response_header[0];
-                    // create cache key-value
-                    $redis->set($cache_key, (string)$result, 120);
-                }
+            if (!$object) {
+                echo " !!!THIS IS NOT JSON ON RECEIVER!!! ";
+                $json->delivery_info['channel']->basic_cancel('');
+                return;
             }
 
-            $data_status = json_encode([
-                "status" => $result
-            ]);
+            $jsonIterator = new RecursiveIteratorIterator(
+                new RecursiveArrayIterator($object),
+                RecursiveIteratorIterator::SELF_FIRST);
 
-            // send update row in db
+            foreach ($jsonIterator as $key => $val) {
+                switch ($key) {
+                    case 'insert':
+                        break;
+                    case 'update':
+                        break;
+                    case 'delete':
+                        break;
+                    default:
+                        break;
+                }
+//                if(is_array($val)) {
+//                    echo "$key:\n";
+//                } else {
+//                    echo "$key => $val\n";
+//                }
+            }
+
             $curl = curl_init();
             curl_setopt_array($curl, array(
-                CURLOPT_URL => "http://"
+                CURLOPT_URL =>
+                    "http://"
                     . $_ENV["NGINX_HOST"] . ":" . $_ENV["NGINX_PORT_INT"]
-                    . "/api/links/" . $object->{'link_id'},
+                    . "/api/v1/categories/" . $object->{'link_id'},
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -97,7 +138,7 @@ class Receiver
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => "PUT",
-                CURLOPT_POSTFIELDS => $data_status,
+                CURLOPT_POSTFIELDS => [],
                 CURLOPT_HTTPHEADER => array(
                     "Content-Type: application/json"
                 ),
@@ -105,15 +146,6 @@ class Receiver
             $response = curl_exec($curl);
             curl_close($curl);
             echo $response . "\n";
-
-            // notify subscribe $_ENV['REDIS_HOST']
-            // that the response has been successfully sent to the db
-            $redis->publish(
-                $_ENV['REDIS_HOST'],
-                json_encode([
-                    'send-test' => 'success'
-                ])
-            );
         };
 
         $channel->basic_consume(
@@ -134,6 +166,5 @@ class Receiver
         }
         $channel->close();
         $connection->close();
-        $redis->close();
     }
 }

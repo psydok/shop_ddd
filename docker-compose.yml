@@ -34,25 +34,20 @@
           "rabbit"
       ]
     },
-    "front": {
-      "build": {
-        "context": "./",
-        "dockerfile": "Dockerfile-admin-front"
-      },
-      "ports": [
-          "${FRONT_PORT}:${FRONT_PORT}"
-      ]
-    },
     "mongo": {
       "image": "mongo",
+      "hostname": "${MONGODB_HOST}",
       "restart": "always",
       "env_file": ".env",
+      "ports": [
+          "${MONGODB_PORT}:${MONGODB_PORT}"
+      ],
       "environment": {
-        "MONGO_INITDB_ROOT_USERNAME": "${MONGO_INITDB_ROOT_USERNAME}",
-        "MONGO_INITDB_ROOT_PASSWORD": "${MONGO_INITDB_ROOT_PASSWORD}"
+        "MONGO_INITDB_ROOT_USERNAME": "${MONGODB_USER}",
+        "MONGO_INITDB_ROOT_PASSWORD": "${MONGODB_PASSWORD}",
       },
       "volumes": [
-          "mongo_data:/data/db"
+          "mongo_data:/data/db/"
       ]
     },
     "mongo-express": {
@@ -63,23 +58,22 @@
       ],
       "env_file": ".env",
       "environment": {
-        "ME_CONFIG_MONGODB_ADMINUSERNAME": "${ME_CONFIG_MONGODB_ADMINUSERNAME}",
-        "ME_CONFIG_MONGODB_ADMINPASSWORD": "${ME_CONFIG_MONGODB_ADMINPASSWORD}"
+        "ME_CONFIG_MONGODB_AUTH_DATABASE": "${MONGODB_USER}",
+        "ME_CONFIG_MONGODB_ADMINUSERNAME": "${MONGODB_USER}",
+        "ME_CONFIG_MONGODB_ADMINPASSWORD": "${MONGODB_PASSWORD}",
+        "ME_CONFIG_MONGODB_ENABLE_ADMIN": "true"
       },
       "links": [
           "mongo"
       ]
     },
     "shop": {
-      "image": "yiisoftware/yii2-php:7.4-apache",
-      "volumes": [
-          "~/.composer:/root/.composer",
-          "~/.composer-docker/cache:/root/.composer/cache:delegated",
-          "./client_shop/backend/basic:/app:delegated",
-          "./client_shop/backend/basic:/var/www"
-      ],
+      "build": {
+        "context": "./",
+        "dockerfile": "Dockerfile-client-api"
+      },
       "ports": [
-          "${YII_CLIENT_POST_EXT}:${YII_CLIENT_POST_INT}"
+          "${CLIENT_PORT_EXT}:${CLIENT_PORT_EXT}"
       ],
       "env_file": ".env",
       "depends_on": [
@@ -113,15 +107,16 @@
         "context": "./",
         "dockerfile": "Dockerfile-consumer"
       },
-      "restart": "always",
       "ports": [
           "${APACHE_PORT_EXT_X}0:${APACHE_PORT_INT_X}0"
       ],
       "links": [
-          "rabbit"
+          "rabbit",
+          "mongo"
       ],
       "depends_on": [
-          "rabbit"
+          "rabbit",
+          "mongo"
       ],
       "healthcheck": {
         "test": "curl -sS http://${RABBIT_HOST}:${RABBIT_PORT2} || exit 1",

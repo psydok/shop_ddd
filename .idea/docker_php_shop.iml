@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/broker/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/broker/vendor/jean85/pretty-package-versions" />
+      <excludeFolder url="file://$MODULE_DIR$/broker/vendor/mongodb/mongodb" />
+      <excludeFolder url="file://$MODULE_DIR$/broker/vendor/php-amqplib/php-amqplib" />
+      <excludeFolder url="file://$MODULE_DIR$/broker/vendor/phpseclib/bcmath_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/broker/vendor/phpseclib/phpseclib" />
+      <excludeFolder url="file://$MODULE_DIR$/broker/vendor/symfony/polyfill-php80" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

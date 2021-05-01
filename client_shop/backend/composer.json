@@ -1,0 +1,9 @@
+{
+    "require": {
+        "gotzmann/comet": "^1.2",
+        "mongodb/mongodb": "^1.8"
+    },
+    "autoload": {
+        "psr-4": { "app\\": "src/" }
+    }
+}

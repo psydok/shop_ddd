@@ -6,6 +6,8 @@ use app\modules\api\models\ItemEntity;
 use app\modules\api\models\ItemRecord;
 use function app\modules\api\services\brokers\sendMessageInRabbit;
 
+require_once("require.php");
+
 class ItemRepository implements RepositoryInterface
 {
     public static function getNewId(): int
@@ -26,6 +28,8 @@ class ItemRepository implements RepositoryInterface
 
             sendMessageInRabbit(["insert" => $item->getAttributes()]);
         } catch (\Throwable $e) {
+            echo $e->getMessage();
+//            echo 'Error: Check name or category_id!';
         }
     }
 

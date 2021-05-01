@@ -7,5 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'decc78cc4436b1292c6c0d151b19445c' => $vendorDir . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+    'a4a119a56e50fbb293281d9a48007e0e' => $vendorDir . '/symfony/polyfill-php80/bootstrap.php',
+    '3a37ebac017bc098e9a86b35401e7a68' => $vendorDir . '/mongodb/mongodb/src/functions.php',
     '56823cacd97af379eceaf82ad00b928f' => $vendorDir . '/phpseclib/bcmath_compat/lib/bcmath.php',
 );

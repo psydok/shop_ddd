@@ -20,67 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile-shop" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/broker/src/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/broker/src/Item.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/src/models/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/backend/src/models/Item.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/db.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/assets/styles/styles.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/assets/styles/variable.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category-item.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category-items.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/components/v-main-wrapper.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/src/vuex/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_shop/frontend/vue.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/local.nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/docker_php_shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/docker_php_shop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile-client-api" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile-client-api" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile-consumer" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile-consumer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/CategoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/ItemRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/repositories/ItemRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/yiisoft/yii2/classes.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/yiisoft/yii2/classes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-category-item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create-item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/components/v-create-item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/frontend/src/vuex/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/frontend/src/vuex/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/broker/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/broker/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/broker/src/Receiver.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/Receiver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/broker/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/src/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/src/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/repositories/CatalogRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/src/repositories/ClientCatalogService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/repositories/ClientRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/src/repositories/ClientServiceInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/config/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-up.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker-up.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +172,7 @@
       <workItem from="1619714413704" duration="51369000" />
       <workItem from="1619863274601" duration="75000" />
       <workItem from="1619865587619" duration="39219000" />
-      <workItem from="1619947031356" duration="41331000" />
+      <workItem from="1619947031356" duration="43006000" />
     </task>
     <servers />
   </component>

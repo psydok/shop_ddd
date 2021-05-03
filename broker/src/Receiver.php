@@ -126,13 +126,11 @@ class Receiver
                     break;
                 case'update':
                     if ($name_obj == 'category') {
-                        $category = Category::find([]);
-                        $category->id = $data['id'];
+                        $category = Category::find(['id'=>$data['id']]);
                         $category->name = $data['name'];
                         $category->save();
                     } else {
-                        $item = Item::find([]);
-                        $item->id = $data['id'];
+                        $item = Item::find(['id'=>$data['id']]);
                         $item->name = $data['name'];
                         $item->price = $data['price'];
                         $item->img_link = $data['img_link'];

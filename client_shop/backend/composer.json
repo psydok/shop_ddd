@@ -1,7 +1,7 @@
 {
     "require": {
         "gotzmann/comet": "^1.2",
-        "mongodb/mongodb": "^1.8"
+        "purekid/mongodm": "dev-master"
     },
     "autoload": {
         "psr-4": { "app\\": "src/" }

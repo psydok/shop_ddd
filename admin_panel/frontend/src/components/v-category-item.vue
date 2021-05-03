@@ -75,7 +75,7 @@ export default {
       this.$emit('sendName', this.item_data.name)
     },
     deleteItem(id) {
-      axios('http://192.168.99.101:8001' + '/api/v1/items/' + id, {
+      axios('http://' + window.location.host + '/api/v1/items/' + id, {
         method: "DELETE",
         headers: {
           "Accept": "application/json",
@@ -94,7 +94,7 @@ export default {
         img_link: this.item_img
       };
       console.log(data);
-      axios('http://192.168.99.101:8001' + '/api/v1/items/' + id, {
+      axios('http://' + window.location.host + '/api/v1/items/' + id, {
         method: "PUT",
         headers: {
           "Accept": "application/json",

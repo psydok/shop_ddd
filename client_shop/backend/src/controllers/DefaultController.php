@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace app\client\controllers;
+namespace app\controllers;
 
+use app\services\ClientCatalogService;
 use Comet\Request;
 use Comet\Response;
 
@@ -16,16 +17,17 @@ class DefaultController
         return $response->withStatus(200);
     }
 
-    public function setCounter(Request $request, Response $response, $args)
+    public function getCatalog(Request $request, Response $response, $args)
     {
-        $name = $args['name'];
+        $newResponse = $response->withHeader('Content-Type', 'application/json');
+        $service = new ClientCatalogService();
+        self::$counter += 1;
+        if (!empty($args)) {
+            $categoryId = $args['id'];
+            $catalog = $service->getItemsByIdCategory((int)$categoryId);
+        } else $catalog = $service->getCatalogsCategories();
 
-        $body = (string) $request->getBody();
-        $json = json_decode($body);
-        if (!$json) {
-            return $response->withStatus(500);
-        }
-        self::$counter = $json->counter;
-        return $response;
+        $newResponse->getBody()->write(json_encode($catalog));
+        return $newResponse->withStatus(200);
     }
 }

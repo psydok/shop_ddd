@@ -9,6 +9,8 @@
       <path value="$PROJECT_DIR$/broker/vendor/php-amqplib/php-amqplib" />
       <path value="$PROJECT_DIR$/broker/vendor/composer" />
       <path value="$PROJECT_DIR$/broker/vendor/mongodb/mongodb" />
+      <path value="$PROJECT_DIR$/broker/vendor/alcaeus/mongo-php-adapter" />
+      <path value="$PROJECT_DIR$/broker/vendor/purekid/mongodm" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

@@ -36,11 +36,11 @@
     },
     "mongo": {
       "image": "mongo",
-      "hostname": "${MONGODB_HOST}",
       "restart": "always",
+      "hostname": "${MONGODB_HOST}",
       "env_file": ".env",
       "ports": [
-          "${MONGODB_PORT}:${MONGODB_PORT}"
+          "${MONGODB_PORT}"
       ],
       "environment": {
         "MONGO_INITDB_ROOT_USERNAME": "${MONGODB_USER}",
@@ -70,7 +70,7 @@
     "shop": {
       "build": {
         "context": "./",
-        "dockerfile": "Dockerfile-client-api"
+        "dockerfile": "Dockerfile-shop"
       },
       "ports": [
           "${CLIENT_PORT_EXT}:${CLIENT_PORT_EXT}"
@@ -107,6 +107,7 @@
         "context": "./",
         "dockerfile": "Dockerfile-consumer"
       },
+      "restart": "always",
       "ports": [
           "${APACHE_PORT_EXT_X}0:${APACHE_PORT_INT_X}0"
       ],

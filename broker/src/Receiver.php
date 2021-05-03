@@ -4,24 +4,18 @@ namespace brokers;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MongoDB\Client;
-use MongoDB\Driver\Manager;
+use app\models\Category;
+use app\models\Item;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Exception\AMQPTimeoutException;
-use RecursiveArrayIterator;
-use RecursiveIteratorIterator;
-
-
-//define('INSTANCE_NAME', getenv('INSTANCE_NAME'));
-//define('AMQP_DEBUG', true);
 
 class Receiver
 {
-    private function getStruct($items)
+    private function getStruct($arrItem)
     {
         $itemsByIdCategory = [];
         $itemsByCategories = [];
-        foreach ($items as $item) {
+        foreach ($arrItem as $item) {
             $itemsByIdCategory[$item['category_id']][] = $item;
             var_dump($item['category_id']);
         }
@@ -33,40 +27,32 @@ class Receiver
         return $itemsByCategories;
     }
 
+    private function getIdMsg($dict, $arrItem)
+    {
+        foreach ($dict as $word) {
+            if (array_key_exists($word, $arrItem)) {
+                return $word;
+            }
+        }
+        return '';
+    }
+
+    private function getObject($arrItem): string
+    {
+        $objects = ['item', 'catalog'];
+        return $this->getIdMsg($objects, $arrItem);
+    }
+
+    private function getAction($arrItem): string
+    {
+        $actions = ['insert', 'update', 'delete'];
+        return $this->getIdMsg($actions, $arrItem);
+    }
+
+
     public function listen()
     {
-        $user = $_ENV['MONGODB_USER'];
-        $pwd = $_ENV['MONGODB_PASSWORD'];
-        $host = $_ENV['MONGODB_HOST'];
-        $port = $_ENV['MONGODB_PORT'];
-        $db = $_ENV['MONGODB_DB'];
-        $connect = "mongodb://${host}:${port}/";
-
         try {
-            $collection = (new Client($connect,[
-                'username' => $user,
-                'password' => $pwd,
-                'ssl' => true,
-                'authSource' => $user,
-            ], ))->test->users;
-            $insertOneResult = $collection->insertOne([
-                'username' => 'admin',
-                'email' => 'admin1@example.com',
-                'name' => 'Admin User',
-            ]);
-            printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
-            echo $insertOneResult->getInsertedId();
-            $manager = new Manager($connect);
-            $r = $manager->executeCommand($db, new \MongoDB\Driver\Command(['ping' => 1]));
-            echo $r->isDead();
-//            var_dump($manager);
-//
-//            $collection = (new Client)->test->users;
-//
-
-//            printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
-//            echo $insertOneResult->getInsertedId();
-
             $queue = $_ENV['RABBIT_QUEUE'];
             $connection = new AMQPStreamConnection(
                 $_ENV['RABBIT_HOST'],
@@ -76,11 +62,7 @@ class Receiver
             );
 
         } catch (\Exception $e) {
-            echo $e->getMessage() . '\n';
-
-            echo $e->getLine() . '\n';
-            echo $e->getTraceAsString() . '\n';
-
+            echo $e->getMessage();
             die;
         }
 
@@ -92,60 +74,88 @@ class Receiver
             true, # чтобы не потерять сообщения
             false,
             false);
-        $items = [];
-        $callback = function ($json) use ($items) {
+        $callback = function ($json) {
             echo "\n", '[x] Received ', $json->body, "\n";
             $object = json_decode($json->body, true);
 
             if (!$object) {
-                echo " !!!THIS IS NOT JSON ON RECEIVER!!! ";
+                echo "[x] !!!THIS IS NOT JSON ON RECEIVER!!! ";
                 $json->delivery_info['channel']->basic_cancel('');
                 return;
             }
 
-            $jsonIterator = new RecursiveIteratorIterator(
-                new RecursiveArrayIterator($object),
-                RecursiveIteratorIterator::SELF_FIRST);
+            $user = $_ENV['MONGODB_USER'];
+            $pwd = $_ENV['MONGODB_PASSWORD'];
+            $host = $_ENV['MONGODB_HOST'];
+            $port = $_ENV['MONGODB_PORT'];
+            $db = $_ENV['MONGODB_DB'];
+            $hostnames = "${host}:${port}";
 
-            foreach ($jsonIterator as $key => $val) {
-                switch ($key) {
-                    case 'insert':
-                        break;
-                    case 'update':
-                        break;
-                    case 'delete':
-                        break;
-                    default:
-                        break;
-                }
-//                if(is_array($val)) {
-//                    echo "$key:\n";
-//                } else {
-//                    echo "$key => $val\n";
-//                }
-            }
-
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL =>
-                    "http://"
-                    . $_ENV["NGINX_HOST"] . ":" . $_ENV["NGINX_PORT_INT"]
-                    . "/api/v1/categories/" . $object->{'link_id'},
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "PUT",
-                CURLOPT_POSTFIELDS => [],
-                CURLOPT_HTTPHEADER => array(
-                    "Content-Type: application/json"
-                ),
+            \Purekid\Mongodm\ConnectionManager::setConfigBlock('default', array(
+                'connection' => array(
+                    'hostnames' => $hostnames,
+                    'database' => $db,
+                    'username' => $user,
+                    'password' => $pwd,
+                    'options' => array()
+                )
             ));
-            $response = curl_exec($curl);
-            curl_close($curl);
-            echo $response . "\n";
+
+            $action = $this->getAction($object);
+            $name_obj = $this->getObject($object);
+
+            $data = $object[$name_obj][$action];
+            switch ($action) {
+                case 'insert':
+                    if ($name_obj == 'category') {
+                        $category = new Category();
+                        $category->id = $data['id'];
+                        $category->name = $data['name'];
+                        echo $category->save();
+                    } else {
+                        $item = new Item();
+                        $item->id = $data['id'];
+                        $item->name = $data['name'];
+                        $item->price = $data['price'];
+                        $item->img_link = $data['img_link'];
+                        $category = Category::find(['id' => $item['category_id']['id']]);
+                        $category->add($item);
+                        $category->save();
+                        echo 111;
+                    }
+                    break;
+                case'update':
+                    if ($name_obj == 'category') {
+                        $category = Category::find([]);
+                        $category->id = $data['id'];
+                        $category->name = $data['name'];
+                        $category->save();
+                    } else {
+                        $item = Item::find([]);
+                        $item->id = $data['id'];
+                        $item->name = $data['name'];
+                        $item->price = $data['price'];
+                        $item->img_link = $data['img_link'];
+                        $category = Category::find(['id' => $item['category_id']['id']]);
+                        $category->add($item);
+                        $category->save();
+                        echo 111;
+                    }
+                    break;
+                case 'delete':
+                    if ($name_obj == 'category') {
+                        $category = Category::find(['id'=>$data['id']]);
+                        $category->delete();
+                        $category->save();
+                    } else {
+                        $item = Item::find(['id'=>$data['id']]);
+                        $item->delete();
+                        $item->save();
+                    }
+                    break;
+                default:
+                    break;
+            }
         };
 
         $channel->basic_consume(

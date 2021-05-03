@@ -26,7 +26,7 @@ class ItemRepository implements RepositoryInterface
             $item->img_link = $object->getImgLink();
             $item->save();
 
-            sendMessageInRabbit(["insert" => $item->getAttributes()]);
+            sendMessageInRabbit(["item" => ["insert" => $item->toArray()]]);
         } catch (\Throwable $e) {
             echo $e->getMessage();
 //            echo 'Error: Check name or category_id!';
@@ -48,7 +48,7 @@ class ItemRepository implements RepositoryInterface
             $item->img_link = $object->getImgLink();
             $item->save();
 
-            sendMessageInRabbit(["update" => $item->getAttributes()]);
+            sendMessageInRabbit(["item" => ["update" => $item->toArray()]]);
         } catch (\Throwable $e) {
         }
     }
@@ -72,7 +72,7 @@ class ItemRepository implements RepositoryInterface
     {
         $object->delete();
 
-        sendMessageInRabbit(["delete" => $object->getAttributes()]);
+        sendMessageInRabbit(["item" => ["delete" => $object->toArray()]]);
     }
 }
 

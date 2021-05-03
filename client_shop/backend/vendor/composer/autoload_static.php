@@ -9,12 +9,17 @@ class ComposerStaticInit101c7e745289fda3d27334b6a1562b5d
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '06dd8487319ccd8403765f5b8c9f2d61' => __DIR__ . '/..' . '/alcaeus/mongo-php-adapter/lib/Mongo/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'a' => 
+        array (
+            'app\\' => 4,
+        ),
         'W' => 
         array (
             'Workerman\\' => 10,
@@ -30,6 +35,7 @@ class ComposerStaticInit101c7e745289fda3d27334b6a1562b5d
         ),
         'P' => 
         array (
+            'Purekid\\Mongodm\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Server\\' => 16,
             'Psr\\Http\\Message\\' => 17,
@@ -58,11 +64,15 @@ class ComposerStaticInit101c7e745289fda3d27334b6a1562b5d
         ),
         'A' => 
         array (
-            'App\\' => 4,
+            'Alcaeus\\MongoDbAdapter\\' => 23,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'app\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Workerman\\' => 
         array (
             0 => __DIR__ . '/..' . '/workerman/workerman',
@@ -78,6 +88,10 @@ class ComposerStaticInit101c7e745289fda3d27334b6a1562b5d
         'Rakit\\Validation\\' => 
         array (
             0 => __DIR__ . '/..' . '/rakit/validation/src',
+        ),
+        'Purekid\\Mongodm\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/purekid/mongodm/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -121,9 +135,19 @@ class ComposerStaticInit101c7e745289fda3d27334b6a1562b5d
         array (
             0 => __DIR__ . '/..' . '/gotzmann/comet/src',
         ),
-        'App\\' => 
+        'Alcaeus\\MongoDbAdapter\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/..' . '/alcaeus/mongo-php-adapter/lib/Alcaeus/MongoDbAdapter',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'M' => 
+        array (
+            'Mongo' => 
+            array (
+                0 => __DIR__ . '/..' . '/alcaeus/mongo-php-adapter/lib/Mongo',
+            ),
         ),
     );
 
@@ -139,6 +163,7 @@ class ComposerStaticInit101c7e745289fda3d27334b6a1562b5d
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit101c7e745289fda3d27334b6a1562b5d::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit101c7e745289fda3d27334b6a1562b5d::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit101c7e745289fda3d27334b6a1562b5d::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit101c7e745289fda3d27334b6a1562b5d::$classMap;
 
         }, null, ClassLoader::class);

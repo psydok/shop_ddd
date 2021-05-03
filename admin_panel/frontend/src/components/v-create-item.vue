@@ -78,7 +78,7 @@ export default {
         category_id: this.selected,
         img_link: this.item_img
       };
-      axios('http://192.168.99.101:8001' + '/api/v1/items', {
+      axios('http://' + window.location.host + '/api/v1/items', {
         method: "POST",
         headers: {
           "Accept": "application/json",

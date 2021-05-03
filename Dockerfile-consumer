@@ -1,6 +1,6 @@
 FROM php:7.4-cli
-RUN apt-get update -y \
-    && apt-get install -y netcat  libzip-dev zip libcurl4-openssl-dev pkg-config libssl-dev \
+RUN docker-php-ext-install sockets && apt-get update -y \
+    && apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb
 COPY ./broker /usr/src/mybroker

@@ -2,8 +2,6 @@
   "require": {
     "php-amqplib/php-amqplib": "^3.0",
     "phpseclib/bcmath_compat": "^1.0",
-    "mongodb/mongodb": "^1.8",
-    "ext-mongo": "*",
-    "ext-mongodb": "*"
+    "purekid/mongodm": "dev-master"
   }
 }

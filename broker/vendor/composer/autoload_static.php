@@ -7,9 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
 {
     public static $files = array (
-        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
+        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        '06dd8487319ccd8403765f5b8c9f2d61' => __DIR__ . '/..' . '/alcaeus/mongo-php-adapter/lib/Mongo/functions.php',
         '56823cacd97af379eceaf82ad00b928f' => __DIR__ . '/..' . '/phpseclib/bcmath_compat/lib/bcmath.php',
     );
 
@@ -28,6 +29,7 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
         ),
         'P' => 
         array (
+            'Purekid\\Mongodm\\' => 16,
             'PhpAmqpLib\\' => 11,
             'PackageVersions\\' => 16,
         ),
@@ -38,6 +40,10 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
         'J' => 
         array (
             'Jean85\\' => 7,
+        ),
+        'A' => 
+        array (
+            'Alcaeus\\MongoDbAdapter\\' => 23,
         ),
     );
 
@@ -53,6 +59,10 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
+        'Purekid\\Mongodm\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/purekid/mongodm/src',
         ),
         'PhpAmqpLib\\' => 
         array (
@@ -70,6 +80,20 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
         array (
             0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
         ),
+        'Alcaeus\\MongoDbAdapter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alcaeus/mongo-php-adapter/lib/Alcaeus/MongoDbAdapter',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'M' => 
+        array (
+            'Mongo' => 
+            array (
+                0 => __DIR__ . '/..' . '/alcaeus/mongo-php-adapter/lib/Mongo',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -84,6 +108,7 @@ class ComposerStaticInit23ed4534538a4f8df336005d4b853ff4
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit23ed4534538a4f8df336005d4b853ff4::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit23ed4534538a4f8df336005d4b853ff4::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit23ed4534538a4f8df336005d4b853ff4::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit23ed4534538a4f8df336005d4b853ff4::$classMap;
 
         }, null, ClassLoader::class);

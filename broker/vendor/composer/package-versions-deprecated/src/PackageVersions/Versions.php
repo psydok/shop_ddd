@@ -33,14 +33,16 @@ final class Versions
      * @internal
      */
     const VERSIONS          = array (
+  'alcaeus/mongo-php-adapter' => '1.0.9@fea3f8333c7b22dde97d7dbe8a82528fc5c27992',
   'composer/package-versions-deprecated' => '1.11.99.1@7413f0b55a051e89485c5cb9f765fe24bb02a7b6',
   'jean85/pretty-package-versions' => '1.6.0@1e0104b46f045868f11942aea058cd7186d6c303',
   'mongodb/mongodb' => '1.8.0@953dbc19443aa9314c44b7217a16873347e6840d',
   'php-amqplib/php-amqplib' => 'v3.0.0@c0a8eade209b7e43d6a405303d8de716dfd02749',
   'phpseclib/bcmath_compat' => '1.0.6@f6f03d3af2ef95fc35b30abdd29f20ee11276a65',
   'phpseclib/phpseclib' => '2.0.31@233a920cb38636a43b18d428f9a8db1f0a1a08f4',
+  'purekid/mongodm' => 'dev-master@108f2e4de5e14eb07c1e2b097a2233b62b33f672',
   'symfony/polyfill-php80' => 'v1.22.1@dc3063ba22c2a1fd2f45ed856374d79114998f91',
-  '__root__' => 'dev-master@613f014f7aa08dc42fdb2a238f0e35145b0fef3f',
+  '__root__' => 'dev-master@51f9cfeeeb61dccb4fb68ae216960c87a2bcdccc',
 );
 
     private function __construct()

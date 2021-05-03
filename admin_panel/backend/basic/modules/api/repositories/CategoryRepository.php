@@ -4,9 +4,13 @@ namespace app\modules\api\repositories;
 
 use app\modules\api\models\CategoryEntity;
 use app\modules\api\models\CategoryRecord;
+use function app\modules\api\services\brokers\sendMessageInRabbit;
+
+require_once("require.php");
 
 class CategoryRepository implements RepositoryInterface
 {
+
     /**
      * @param CategoryEntity $object
      * @return array|string
@@ -18,6 +22,8 @@ class CategoryRepository implements RepositoryInterface
             $category->id = $object->getId();
             $category->name = $object->getName();
             $category->save();
+            sendMessageInRabbit(["category" => ["insert" => $category->toArray()]]);
+
         } catch (\Throwable $e) {
         }
     }
@@ -29,6 +35,8 @@ class CategoryRepository implements RepositoryInterface
             $category = CategoryRecord::findOne(['id' => $object->getId()]);
             $category->name = $object->getName();
             $category->save();
+
+            sendMessageInRabbit(["category" => ["update" => $category->toArray()]]);
         } catch (\Throwable $e) {
         }
     }
@@ -59,5 +67,7 @@ class CategoryRepository implements RepositoryInterface
     public function delete($object): void
     {
         $object->delete();
+
+        sendMessageInRabbit(["category" => ["delete" => $object->toArray()]]);
     }
 }

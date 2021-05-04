@@ -1,9 +1,0 @@
-FROM php:7.4-cli
-RUN docker-php-ext-install sockets && apt-get update \
-    && apt-get install -y libevent-dev libcurl4-openssl-dev pkg-config libssl-dev libonig-dev \
-    && pecl install event mongodb \
-    && docker-php-ext-enable event mongodb \
-    && docker-php-ext-install mbstring pcntl
-COPY ./client_shop/backend /var/www/
-WORKDIR /var/www
-CMD php ./src/app.php start

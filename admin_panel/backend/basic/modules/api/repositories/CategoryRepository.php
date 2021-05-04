@@ -22,8 +22,8 @@ class CategoryRepository implements RepositoryInterface
             $category->id = $object->getId();
             $category->name = $object->getName();
             $category->save();
-            sendMessageInRabbit(["category" => ["insert" => $category->toArray()]]);
 
+            sendMessageInRabbit(["category" => ["insert" => $category->toArray()]]);
         } catch (\Throwable $e) {
         }
     }

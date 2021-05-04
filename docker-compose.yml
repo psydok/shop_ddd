@@ -40,7 +40,7 @@
       "hostname": "${MONGODB_HOST}",
       "env_file": ".env",
       "ports": [
-          "${MONGODB_PORT}"
+          "${MONGODB_PORT}:${MONGODB_PORT}"
       ],
       "environment": {
         "MONGO_INITDB_ROOT_USERNAME": "${MONGODB_USER}",
@@ -67,20 +67,24 @@
           "mongo"
       ]
     },
-    "shop": {
-      "build": {
-        "context": "./",
-        "dockerfile": "Dockerfile-shop"
-      },
-      "ports": [
-          "${CLIENT_PORT_EXT}:${CLIENT_PORT_EXT}"
-      ],
-      "env_file": ".env",
-      "depends_on": [
-          "mongo",
-          "rabbit"
-      ]
-    },
+    #    "shop": {
+    #      "build": {
+    #        "context": "./",
+    #        "dockerfile": "Dockerfile-shop"
+    #      },
+    #      "volumes": [
+    #          "./client_shop/backend:/app:delegated",
+    #          "./client_shop/backend:/var/www"
+    #      ],
+    #      "ports": [
+    #          "${CLIENT_PORT_EXT}:${CLIENT_PORT_EXT}"
+    #      ],
+    #      "env_file": ".env",
+    #      "depends_on": [
+    #          "mongo",
+    #          "rabbit"
+    #      ]
+    #    },
     "rabbit": {
       "build": {
         "context": "./",
@@ -93,7 +97,7 @@
           "${RABBIT_PORT2}:${RABBIT_PORT2}"
       ],
       "volumes": [
-          "rabbitmq_data:/var/lib/rabbitmq_data/data/"
+          "rabbitmq_data:/var/lib/rabbitmq/data/"
       ],
       "healthcheck": {
         "test": "rabbitmq-diagnostics -q ping",
@@ -107,9 +111,12 @@
         "context": "./",
         "dockerfile": "Dockerfile-consumer"
       },
+      "volumes": [
+          "./broker:/var/www"
+      ],
       "restart": "always",
       "ports": [
-          "${APACHE_PORT_EXT_X}0:${APACHE_PORT_INT_X}0"
+          "${BROKER_PORT_EXT_X}:${BROKER_PORT_INT_X}"
       ],
       "links": [
           "rabbit",

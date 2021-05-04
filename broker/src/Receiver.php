@@ -4,14 +4,13 @@ namespace brokers;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use app\models\Category;
-use app\models\Item;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Exception\AMQPTimeoutException;
+use Sokil\Mongo\Client;
 
 class Receiver
 {
-    private function getStruct($arrItem)
+    private static function getStruct($arrItem)
     {
         $itemsByIdCategory = [];
         $itemsByCategories = [];
@@ -27,7 +26,7 @@ class Receiver
         return $itemsByCategories;
     }
 
-    private function getIdMsg($dict, $arrItem)
+    private static function getIdMsg($dict, $arrItem)
     {
         foreach ($dict as $word) {
             if (array_key_exists($word, $arrItem)) {
@@ -37,16 +36,16 @@ class Receiver
         return '';
     }
 
-    private function getObject($arrItem): string
+    private static function getObject($arrItem): string
     {
         $objects = ['item', 'catalog'];
-        return $this->getIdMsg($objects, $arrItem);
+        return self::getIdMsg($objects, $arrItem);
     }
 
-    private function getAction($arrItem): string
+    private static function getAction($arrItem): string
     {
         $actions = ['insert', 'update', 'delete'];
-        return $this->getIdMsg($actions, $arrItem);
+        return self::getIdMsg($actions, $arrItem);
     }
 
 
@@ -60,6 +59,20 @@ class Receiver
                 $_ENV['RABBIT_USER'],
                 $_ENV['RABBIT_PASSWORD']
             );
+            $user = $_ENV['MONGODB_USER'];
+            $pwd = $_ENV['MONGODB_PASSWORD'];
+            $host = $_ENV['MONGODB_HOST'];
+            $port = $_ENV['MONGODB_PORT'];
+            $db = $_ENV['MONGODB_DB'];
+            $hostnames = "mongodb://${host}:${port}";
+            $client = new Client($hostnames, [
+                'username' => $user,
+                'password' => $pwd
+            ]);
+            $client->useDatabase($db);
+            $collection = $client->getCollection('catalog');
+            include('Category.php');
+            include('Item.php');
 
         } catch (\Exception $e) {
             echo $e->getMessage();
@@ -74,82 +87,107 @@ class Receiver
             true, # чтобы не потерять сообщения
             false,
             false);
-        $callback = function ($json) {
-            echo "\n", '[x] Received ', $json->body, "\n";
-            $object = json_decode($json->body, true);
 
-            if (!$object) {
+        $callback = function ($json) use ($collection) {
+            echo "\n", '[x] Received ', $json->body, "\n";
+
+            $object = json_decode($json->body, true);
+            if (empty($object)) {
                 echo "[x] !!!THIS IS NOT JSON ON RECEIVER!!! ";
                 $json->delivery_info['channel']->basic_cancel('');
                 return;
             }
 
-            $user = $_ENV['MONGODB_USER'];
-            $pwd = $_ENV['MONGODB_PASSWORD'];
-            $host = $_ENV['MONGODB_HOST'];
-            $port = $_ENV['MONGODB_PORT'];
-            $db = $_ENV['MONGODB_DB'];
-            $hostnames = "${host}:${port}";
+            $action = '';
+            $name_obj = '';
+            foreach (['item', 'category'] as $word) {
+                if (array_key_exists($word, $object)) {
+                    $name_obj = $word;
+                    break;
+                }
+            }
 
-            \Purekid\Mongodm\ConnectionManager::setConfigBlock('default', array(
-                'connection' => array(
-                    'hostnames' => $hostnames,
-                    'database' => $db,
-                    'username' => $user,
-                    'password' => $pwd,
-                    'options' => array()
-                )
-            ));
-
-            $action = $this->getAction($object);
-            $name_obj = $this->getObject($object);
+            foreach (['insert', 'update', 'delete'] as $word) {
+                if (array_key_exists($word, $object[$name_obj])) {
+                    $action = $word;
+                    break;
+                }
+            }
 
             $data = $object[$name_obj][$action];
             switch ($action) {
                 case 'insert':
                     if ($name_obj == 'category') {
-                        $category = new Category();
+                        $category = new \Category($collection);
                         $category->id = $data['id'];
                         $category->name = $data['name'];
-                        echo $category->save();
+                        $res = $category->save();
                     } else {
-                        $item = new Item();
-                        $item->id = $data['id'];
-                        $item->name = $data['name'];
-                        $item->price = $data['price'];
-                        $item->img_link = $data['img_link'];
-                        $category = Category::find(['id' => $item['category_id']['id']]);
-                        $category->add($item);
-                        $category->save();
-                        echo 111;
+                        $item = new \Item([
+                            'id' => $data['id'],
+                            'name' => $data['name'],
+                            'price' => $data['price'],
+                            'img_link' => $data['img_link']
+                        ]);
+                        $category = $collection->find()->where('id', $data['category_id']['id'])->findOne();
+                        $category->push('items', $item);
+                        $res = $category->save();
                     }
+                    echo '[x] Inserted #' . $res . '\n';
                     break;
                 case'update':
                     if ($name_obj == 'category') {
-                        $category = Category::find(['id'=>$data['id']]);
+                        $category = $collection->find()->where('id', $data['id'])->findOne();
                         $category->name = $data['name'];
                         $category->save();
                     } else {
-                        $item = Item::find(['id'=>$data['id']]);
-                        $item->name = $data['name'];
-                        $item->price = $data['price'];
-                        $item->img_link = $data['img_link'];
-                        $category = Category::find(['id' => $item['category_id']['id']]);
-                        $category->add($item);
-                        $category->save();
-                        echo 111;
+                        $category = $collection->find()->where('id', $data['category_id']['id'])->findOne();
+                        $items = $category->getItems();
+                        foreach ($items as $item) {
+                            if ($item['id'] === $data['id']) {
+                                $updatedItem = new \Item($item);
+                                $updatedItem->setName($data['name']);
+                                $updatedItem->setPrice((float)$data['price']);
+                                if ($data['img_link'])
+                                    $updatedItem->setImgLink($data['img_link']);
+
+                                $removeItem = array('$pull' => array(
+                                    'items' => array(
+                                        'id' => $data['id'],
+                                    )
+                                ));
+
+                                $collection->update(['id' => $data['category_id']['id']],
+                                    $removeItem,
+                                    array("multiple" => true));
+
+                                $category->push('items', $updatedItem);
+                                $category->save();
+                                break;
+                            }
+                        }
                     }
+                    echo '[x] Updated \n';
                     break;
                 case 'delete':
                     if ($name_obj == 'category') {
-                        $category = Category::find(['id'=>$data['id']]);
+                        $category = $collection->find()->where('id', $data['id'])->findOne();
                         $category->delete();
                         $category->save();
                     } else {
-                        $item = Item::find(['id'=>$data['id']]);
-                        $item->delete();
-                        $item->save();
+                        $removeItem = array(
+                            '$pull' => array(
+                                'items' => array(
+                                    'id' => $data['id'],
+                                )
+                            )
+                        );
+                        $collection->update(
+                            ['id' => $data['category_id']['id']],
+                            $removeItem,
+                            array("multiple" => true));
                     }
+                    echo '[x] Deleted \n';
                     break;
                 default:
                     break;

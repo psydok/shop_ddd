@@ -1,7 +1,7 @@
 {
     "require": {
         "gotzmann/comet": "^1.2",
-        "purekid/mongodm": "dev-master"
+        "sokil/php-mongo": "^1.23"
     },
     "autoload": {
         "psr-4": { "app\\": "src/" }

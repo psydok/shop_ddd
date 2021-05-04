@@ -1,15 +1,12 @@
 <?php
 
-use Purekid\Mongodm\Model;
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
-class Category extends \Purekid\Mongodm\Model
+class Category extends \Sokil\Mongo\Document
 {
-    static $collection = "catalog";
-    protected static $attrs = array(
-        'id' => array('type' => Model::DATA_TYPE_INTEGER),
-        'name' => array('type' => Model::DATA_TYPE_STRING),
-        'items' => array('model' => Item::class, 'type' => Model::DATA_TYPE_REFERENCES),
-    );
+    public function getItems()
+    {
+        return $this->getObjectList('items', '\Item');
+    }
+
 }

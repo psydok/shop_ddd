@@ -2,6 +2,6 @@
   "require": {
     "php-amqplib/php-amqplib": "^3.0",
     "phpseclib/bcmath_compat": "^1.0",
-    "purekid/mongodm": "dev-master"
+    "sokil/php-mongo": "^1.23"
   }
 }

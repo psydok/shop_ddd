@@ -1,8 +1,10 @@
 FROM php:7.4-cli
 RUN docker-php-ext-install sockets && apt-get update -y \
-    && apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev \
+    && apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev curl zip unzip \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY ./broker /usr/src/mybroker
 WORKDIR /usr/src/mybroker
+RUN composer install
 CMD ["php", "./src/receive.php"]

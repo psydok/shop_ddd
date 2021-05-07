@@ -5,7 +5,8 @@ RUN docker-php-ext-install sockets && apt-get update \
     && docker-php-ext-enable event mongodb \
     && docker-php-ext-install mbstring pcntl
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-COPY ./client_shop/backend /var/www/
+COPY ./client_shop/backend /var/www
 WORKDIR /var/www
 RUN composer install
-CMD ["php", "./src/app.php", "start"]
+CMD php ./src/app.php stop
+CMD php ./src/app.php start

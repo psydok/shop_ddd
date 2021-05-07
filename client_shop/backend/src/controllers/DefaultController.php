@@ -7,13 +7,15 @@ use app\services\ClientCatalogService;
 use Comet\Request;
 use Comet\Response;
 
+require_once __DIR__ . '/../../vendor/autoload.php';
+
 class DefaultController
 {
     private static $counter = 0;
 
     public function getCounter(Request $request, Response $response, $args)
     {
-        $response->getBody()->write(self::$counter);
+        $response->getBody()->write('Count of requests: ' . self::$counter);
         return $response->withStatus(200);
     }
 
@@ -21,13 +23,19 @@ class DefaultController
     {
         $newResponse = $response->withHeader('Content-Type', 'application/json');
         $service = new ClientCatalogService();
-        self::$counter += 1;
-        if (!empty($args)) {
-            $categoryId = $args['id'];
-            $catalog = $service->getItemsByIdCategory((int)$categoryId);
-        } else $catalog = $service->getCatalogsCategories();
+        try {
+            self::$counter += 1;
+            if (!empty($args)) {
+                $categoryId = $args['id'];
+                $catalog = $service->getItemsByIdCategory((int)$categoryId);
+            } else $catalog = $service->getCatalogsCategories();
 
-        $newResponse->getBody()->write(json_encode($catalog));
-        return $newResponse->withStatus(200);
+            $newResponse->getBody()->write(json_encode($catalog));
+            return $newResponse->withStatus(200);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            echo $e->getTraceAsString();
+        }
+        return $newResponse->withStatus(418);
     }
 }

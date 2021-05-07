@@ -9,9 +9,6 @@
   "services": {
     "postgres": {
       "image": "postgres",
-      "volumes": [
-          "postgres_data:/var/lib/postgresql/data/"
-      ],
       "env_file": ".env",
       "ports": [
           "${POSTGRES_PORT}"
@@ -67,24 +64,19 @@
           "mongo"
       ]
     },
-    #    "shop": {
-    #      "build": {
-    #        "context": "./",
-    #        "dockerfile": "Dockerfile-shop"
-    #      },
-    #      "volumes": [
-    #          "./client_shop/backend:/app:delegated",
-    #          "./client_shop/backend:/var/www"
-    #      ],
-    #      "ports": [
-    #          "${CLIENT_PORT_EXT}:${CLIENT_PORT_EXT}"
-    #      ],
-    #      "env_file": ".env",
-    #      "depends_on": [
-    #          "mongo",
-    #          "rabbit"
-    #      ]
-    #    },
+    "shop": {
+      "build": {
+        "context": "./",
+        "dockerfile": "Dockerfile-shop"
+      },
+      "ports": [
+          "${CLIENT_PORT_EXT}:${CLIENT_PORT_EXT}"
+      ],
+      "env_file": ".env",
+      "depends_on": [
+          "mongo"
+      ]
+    },
     "rabbit": {
       "build": {
         "context": "./",
@@ -111,9 +103,6 @@
         "context": "./",
         "dockerfile": "Dockerfile-consumer"
       },
-      "volumes": [
-          "./broker:/var/www"
-      ],
       "restart": "always",
       "ports": [
           "${BROKER_PORT_EXT_X}:${BROKER_PORT_INT_X}"

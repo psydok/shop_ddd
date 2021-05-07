@@ -1,9 +1,8 @@
 <?php
-
-
+namespace brokers\models;
 require_once __DIR__ . '/../vendor/autoload.php';
 
-class Item extends \Sokil\Mongo\Structure
+class StructItem extends \Sokil\Mongo\Structure
 {
     public function getId() { return $this->get('id'); }
     public function getName() { return $this->get('name'); }
@@ -12,5 +11,5 @@ class Item extends \Sokil\Mongo\Structure
 
     public function setName(string $name) { return $this->set('name', $name); }
     public function setPrice(float $price) { return $this->set('price', $price); }
-    public function setImgLink(string  $imgLink) { return $this->set('img_link', $imgLink); }
+    public function setImgLink($imgLink) { return $this->set('img_link', $imgLink); }
 }

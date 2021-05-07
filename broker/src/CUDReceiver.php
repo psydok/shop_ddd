@@ -3,52 +3,17 @@
 namespace brokers;
 
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/DocumentCategory.php';
+require_once __DIR__ . '/StructItem.php';
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Exception\AMQPTimeoutException;
 use Sokil\Mongo\Client;
+use brokers\models\DocumentCategory;
+use brokers\models\StructItem;
 
-class Receiver
+class CUDReceiver
 {
-    private static function getStruct($arrItem)
-    {
-        $itemsByIdCategory = [];
-        $itemsByCategories = [];
-        foreach ($arrItem as $item) {
-            $itemsByIdCategory[$item['category_id']][] = $item;
-            var_dump($item['category_id']);
-        }
-        foreach (array_keys($itemsByIdCategory) as $key) {
-            //$category = CategoryRecord::findOne(['id' => $key])->getAttributes();
-            $category['items'] = $itemsByIdCategory[$key];
-            $itemsByCategories[] = $category;
-        }
-        return $itemsByCategories;
-    }
-
-    private static function getIdMsg($dict, $arrItem)
-    {
-        foreach ($dict as $word) {
-            if (array_key_exists($word, $arrItem)) {
-                return $word;
-            }
-        }
-        return '';
-    }
-
-    private static function getObject($arrItem): string
-    {
-        $objects = ['item', 'catalog'];
-        return self::getIdMsg($objects, $arrItem);
-    }
-
-    private static function getAction($arrItem): string
-    {
-        $actions = ['insert', 'update', 'delete'];
-        return self::getIdMsg($actions, $arrItem);
-    }
-
-
     public function listen()
     {
         try {
@@ -59,20 +24,18 @@ class Receiver
                 $_ENV['RABBIT_USER'],
                 $_ENV['RABBIT_PASSWORD']
             );
-            $user = $_ENV['MONGODB_USER'];
-            $pwd = $_ENV['MONGODB_PASSWORD'];
+
             $host = $_ENV['MONGODB_HOST'];
             $port = $_ENV['MONGODB_PORT'];
-            $db = $_ENV['MONGODB_DB'];
             $hostnames = "mongodb://${host}:${port}";
+
             $client = new Client($hostnames, [
-                'username' => $user,
-                'password' => $pwd
+                'username' => $_ENV['MONGODB_USER'],
+                'password' => $_ENV['MONGODB_PASSWORD']
             ]);
-            $client->useDatabase($db);
-            $collection = $client->getCollection('catalog');
-            include('Category.php');
-            include('Item.php');
+            $client->useDatabase($_ENV['MONGODB_DB']);
+            $collection = $client->getCollection($_ENV['MONGODB_CATALOG']);
+
 
         } catch (\Exception $e) {
             echo $e->getMessage();
@@ -118,38 +81,37 @@ class Receiver
             switch ($action) {
                 case 'insert':
                     if ($name_obj == 'category') {
-                        $category = new \Category($collection);
-                        $category->id = $data['id'];
-                        $category->name = $data['name'];
-                        $res = $category->save();
+                        $documentCategory = new DocumentCategory($collection);
+                        $documentCategory->id = $data['id'];
+                        $documentCategory->name = $data['name'];
+                        $res = $documentCategory->save();
                     } else {
-                        $item = new \Item([
+                        $item = new StructItem([
                             'id' => $data['id'],
                             'name' => $data['name'],
                             'price' => $data['price'],
                             'img_link' => $data['img_link']
                         ]);
-                        $category = $collection->find()->where('id', $data['category_id']['id'])->findOne();
-                        $category->push('items', $item);
-                        $res = $category->save();
+                        $documentCategory = $collection->find()->where('id', $data['category_id']['id'])->findOne();
+                        $documentCategory->push('items', $item);
+                        $res = $documentCategory->save();
                     }
                     echo '[x] Inserted #' . $res . '\n';
                     break;
                 case'update':
                     if ($name_obj == 'category') {
-                        $category = $collection->find()->where('id', $data['id'])->findOne();
-                        $category->name = $data['name'];
-                        $category->save();
+                        $documentCategory = $collection->find()->where('id', $data['id'])->findOne();
+                        $documentCategory->name = $data['name'];
+                        $documentCategory->save();
                     } else {
-                        $category = $collection->find()->where('id', $data['category_id']['id'])->findOne();
-                        $items = $category->getItems();
+                        $documentCategory = $collection->find()->where('id', $data['category_id']['id'])->findOne();
+                        $items = $documentCategory->getItems();
                         foreach ($items as $item) {
                             if ($item['id'] === $data['id']) {
-                                $updatedItem = new \Item($item);
+                                $updatedItem = new StructItem($item);
                                 $updatedItem->setName($data['name']);
                                 $updatedItem->setPrice((float)$data['price']);
-                                if ($data['img_link'])
-                                    $updatedItem->setImgLink($data['img_link']);
+                                $updatedItem->setImgLink($data['img_link']);
 
                                 $removeItem = array('$pull' => array(
                                     'items' => array(
@@ -161,8 +123,8 @@ class Receiver
                                     $removeItem,
                                     array("multiple" => true));
 
-                                $category->push('items', $updatedItem);
-                                $category->save();
+                                $documentCategory->push('items', $updatedItem);
+                                $documentCategory->save();
                                 break;
                             }
                         }
@@ -171,9 +133,9 @@ class Receiver
                     break;
                 case 'delete':
                     if ($name_obj == 'category') {
-                        $category = $collection->find()->where('id', $data['id'])->findOne();
-                        $category->delete();
-                        $category->save();
+                        $documentCategory = $collection->find()->where('id', $data['id'])->findOne();
+                        $documentCategory->delete();
+                        $documentCategory->save();
                     } else {
                         $removeItem = array(
                             '$pull' => array(

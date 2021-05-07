@@ -1,8 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/Receiver.php';
-use brokers\Receiver;
+require_once __DIR__ . '/CUDReceiver.php';
+use brokers\CUDReceiver;
 
-$receiver = new Receiver();
+$receiver = new CUDReceiver();
 $receiver->listen();

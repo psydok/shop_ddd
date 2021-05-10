@@ -33,8 +33,8 @@ $app->post('/register',
     'app\controllers\DefaultController:createUser');
 
 //---------------------------admin---------------------------//
-//$app->get('/admin',
-//    'app\controllers\DefaultController:getGateway');
+$app->get('/admin',
+    'app\controllers\DefaultController:getGateway');
 //$app->get('/admin/{path}',
 //    'app\controllers\DefaultController:getGateway');
 //$app->post('/admin/{path}',

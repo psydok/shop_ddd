@@ -20,50 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/Dockerfile-gateway" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/config/db.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/src/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/src/controllers/DefaultController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/src/models/UserEntity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/src/repositories/Database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/src/repositories/UsersRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile-consumer" beforeDir="false" afterPath="$PROJECT_DIR$/broker/Dockerfile-consumer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile-rabbit" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile-shop" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/Dockerfile-shop" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/broker/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/services/ClientCatalogService.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/services/ClientCatalogService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/services/ClientServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/services/ClientServiceInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/db.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/assets/styles/styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/assets/styles/variable.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category-item.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category-items.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/components/v-main-wrapper.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/vuex/store.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/frontend/vue.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/config/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-up.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker-up.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/controllers/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/models/UserEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/models/UserEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/repositories/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/repositories/UsersRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +212,8 @@
       <workItem from="1620310150415" duration="26683000" />
       <workItem from="1620397213437" duration="3337000" />
       <workItem from="1620485287296" duration="11130000" />
-      <workItem from="1620579453980" duration="32996000" />
+      <workItem from="1620579453980" duration="34051000" />
+      <workItem from="1620653843127" duration="3868000" />
     </task>
     <servers />
   </component>

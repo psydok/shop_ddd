@@ -15,7 +15,6 @@ class DefaultController
 {
     private function getUser($data, Request $request)
     {
-        var_dump($data);
         $user = UserEntity::withParams(
             $data['login'],
             $data['password']
@@ -57,7 +56,11 @@ class DefaultController
     {
         $newResponse = $response->withHeader('Content-Type', 'application/json');
         try {
-            $user = $this->getUser($request->getQueryParams(), $request);
+            $data = $request->getQueryParams();
+            $user = UserEntity::withCleanParams(
+                $data['login'],
+                $data['password']
+            );
             $repository = new UsersRepository();
             if ($id = $repository->compareUser($user)) {
                 $user->setId((int)$id);

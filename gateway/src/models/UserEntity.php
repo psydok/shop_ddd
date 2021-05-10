@@ -31,6 +31,15 @@ class UserEntity
         return $user;
     }
 
+    public static function withCleanParams(string $login, string $password, string $role = 'client')
+    {
+        $user = new UserEntity();
+        $user->login = self::checkIsNull($login);
+        $user->password = self::checkIsNull($password);
+        $user->role = self::checkAllowabilityRoles($role);
+        return $user;
+    }
+
     private static function checkIsNull($value)
     {
         if (empty($value)) {

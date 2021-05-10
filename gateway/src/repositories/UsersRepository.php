@@ -43,7 +43,8 @@ class UsersRepository extends Database
     public function compareUser(UserEntity $user): bool
     {
         $userFromDb = $this->getByLogin($user->getLogin());
-        if ($userFromDb->getPassword() === $user->getPassword())
+        echo var_dump($user->getPassword());
+        if (password_verify($user->getPassword(), $userFromDb->getPassword()))
             return $userFromDb->getId();
         return false;
     }

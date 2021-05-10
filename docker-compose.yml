@@ -66,7 +66,7 @@
     },
     "shop": {
       "build": {
-        "context": "./",
+        "context": "./client_shop",
         "dockerfile": "Dockerfile-shop"
       },
       "ports": [
@@ -78,10 +78,7 @@
       ]
     },
     "rabbit": {
-      "build": {
-        "context": "./",
-        "dockerfile": "Dockerfile-rabbit"
-      },
+      "image": "rabbitmq:management",
       "env_file": ".env",
       "hostname": "${RABBIT_HOST}",
       "ports": [
@@ -100,7 +97,7 @@
     },
     "consumer": {
       "build": {
-        "context": "./",
+        "context": "./broker",
         "dockerfile": "Dockerfile-consumer"
       },
       "restart": "always",
@@ -122,6 +119,19 @@
         "retries": "5"
       },
       "env_file": ".env",
-    }
+    },
+    "gateway": {
+      "build": {
+        "context": "./gateway",
+        "dockerfile": "Dockerfile-gateway"
+      },
+      "ports": [
+          "8060:8060"
+      ],
+      "env_file": "./gateway/.env",
+      "depends_on": [
+          "postgres"
+      ]
+    },
   }
 }

@@ -20,24 +20,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/restart_workerman.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/Dockerfile-gateway" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/config/db.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/controllers/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/models/UserEntity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/repositories/Database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/repositories/UsersRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile-shop" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile-shop" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile-consumer" beforeDir="false" afterPath="$PROJECT_DIR$/broker/Dockerfile-consumer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile-rabbit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile-shop" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/Dockerfile-shop" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/broker/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/broker/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/src/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/DocumentCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/src/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/StructItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/src/Receiver.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/CUDReceiver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/src/receive.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/receive.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/src/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/src/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/models/Category.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/models/Item.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/repositories/ClientCatalogService.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/src/services/ClientCatalogService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/repositories/ClientServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/backend/src/services/ClientServiceInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/controllers/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/services/ClientCatalogService.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/services/ClientCatalogService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/backend/src/services/ClientServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/services/ClientServiceInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/assets/styles/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/assets/styles/variable.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category-item.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category-items.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/components/v-category.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/components/v-main-wrapper.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/src/vuex/store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/frontend/vue.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/config/nginx.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-up.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker-up.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +130,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client_shop/backend/src/models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gateway/src" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="Docker" />
@@ -112,17 +138,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop\backend\src\services" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\admin_panel\backend\basic\modules\api\repositories" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway\src" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop\backend\src\models" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\config" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\broker\src" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway\src" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\broker" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop\backend\src\services" />
     </key>
   </component>
   <component name="RunManager" selected="Docker.docker-compose.yml.consumer: Compose Deployment">
@@ -220,7 +248,10 @@
       <workItem from="1620133844245" duration="29845000" />
       <workItem from="1620221910122" duration="18184000" />
       <workItem from="1620307353631" duration="881000" />
-      <workItem from="1620310150415" duration="22642000" />
+      <workItem from="1620310150415" duration="26683000" />
+      <workItem from="1620397213437" duration="3337000" />
+      <workItem from="1620485287296" duration="11130000" />
+      <workItem from="1620579453980" duration="32996000" />
     </task>
     <servers />
   </component>
@@ -252,14 +283,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1007" y="398" key="#Port_bindings/0.0.1920.1040@0.0.1920.1040" timestamp="1619900515424" />
-    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1619967544049">
+    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1620492285801">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619967544049" />
-    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1620000824871">
+    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620492285801" />
+    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1620605182331">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620000824871" />
+    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620605182331" />
     <state x="319" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1620225927034">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -292,22 +323,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1388" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619833036048" />
-    <state x="416" y="323" key="NewPhpClassDialog" timestamp="1620343258235">
+    <state x="416" y="323" key="NewPhpClassDialog" timestamp="1620601854240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="416" y="323" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620343258235" />
-    <state x="512" y="454" key="NewPhpFileDialog" timestamp="1619751006558">
+    <state x="416" y="323" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620601854240" />
+    <state x="512" y="454" key="NewPhpFileDialog" timestamp="1620597347019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="512" y="454" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619751006558" />
+    <state x="512" y="454" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620597347019" />
     <state x="27" y="300" key="SettingsEditor" timestamp="1619282342105">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="27" y="300" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619282342105" />
-    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620161175549">
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620630017234">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620161175549" />
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620630017234" />
     <state x="479" y="391" key="refactoring.ChangeSignatureDialog" timestamp="1619388821143">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -1,9 +1,7 @@
 docker-compose build
 docker-compose up -d
 docker-compose exec admin_panel bash
-composer install
-docker-compose exec postgres createdb -U postgres admindb
+docker-compose exec postgres createdb -U admin admindb (usersdb)
 docker-compose exec admin_panel yii migrate
-
 composer install --ignore-platform-reqs
-
+vendor/bin/phinx migrate -e development

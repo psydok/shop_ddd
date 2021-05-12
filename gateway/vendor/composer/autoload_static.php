@@ -14,11 +14,11 @@ class ComposerStaticInit341263dd6eacd1f0bde55399c89849e5
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '948ad5488880985ff1c06721a4e447fe' => __DIR__ . '/..' . '/cakephp/utility/bootstrap.php',
     );
 
@@ -64,6 +64,10 @@ class ComposerStaticInit341263dd6eacd1f0bde55399c89849e5
             'Psr\\Container\\' => 14,
             'Phinx\\' => 6,
         ),
+        'N' => 
+        array (
+            'Neomerx\\Cors\\' => 13,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -95,7 +99,8 @@ class ComposerStaticInit341263dd6eacd1f0bde55399c89849e5
         'Tuupola\\Middleware\\' => 
         array (
             0 => __DIR__ . '/..' . '/tuupola/callable-handler/src',
-            1 => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src',
+            1 => __DIR__ . '/..' . '/tuupola/cors-middleware/src',
+            2 => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src',
         ),
         'Tuupola\\Http\\Factory\\' => 
         array (
@@ -168,8 +173,8 @@ class ComposerStaticInit341263dd6eacd1f0bde55399c89849e5
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Container\\' => 
         array (
@@ -178,6 +183,10 @@ class ComposerStaticInit341263dd6eacd1f0bde55399c89849e5
         'Phinx\\' => 
         array (
             0 => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx',
+        ),
+        'Neomerx\\Cors\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/neomerx/cors-psr7/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

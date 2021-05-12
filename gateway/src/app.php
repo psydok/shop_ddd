@@ -3,15 +3,30 @@ declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use app\controllers\DefaultController;
+use app\models\UserEntity;
+use app\repositories\UsersRepository;
 use Comet\Comet;
+use Comet\Request;
+use Comet\Response;
 
 $app = new Comet([
     'host' => '0.0.0.0',
-    'port' => getenv('PORT'),
-    'debug' => true
+    'port' => getenv('PORT')
 ]);
 
+$app->addBodyParsingMiddleware();
+$app->add(\app\middleware\CorsMiddleware::class);
+$app->addRoutingMiddleware();
+
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    $response = $response
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', '*');
+    return $response;
+});
+
 //---------------------------user---------------------------//
+
 $app->post('/auth',
     'app\controllers\DefaultController:getAuth');
 $app->post('/register',
@@ -41,4 +56,6 @@ $app->get('/catalog/{path}/{id}',
 
 //---------------------------start---------------------------//
 $app->run();
+
+
 ?>

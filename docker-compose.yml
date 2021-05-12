@@ -20,7 +20,7 @@
           "~/.composer:/root/.composer",
           "~/.composer-docker/cache:/root/.composer/cache:delegated",
           "./admin_panel/backend/basic:/app:delegated",
-          "./admin_panel/backend/basic/docker/vhost.conf:/etc/apache2/sites-enabled/000-default.conf",
+          "./admin_panel/backend/basic/docker/vhost.conf:/etc/apache2/sites-available/000-default.conf",
           "./admin_panel/backend/basic:/var/www"
       ],
       "ports": [
@@ -131,7 +131,9 @@
       ],
       "env_file": "./gateway/.env",
       "depends_on": [
-          "postgres"
+          "postgres",
+          "admin_panel",
+          "shop"
       ]
     },
   }

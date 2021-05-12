@@ -20,36 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/docker/ports.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/docker/vhost.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/JwtValidationData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/middleware/CorsMiddleware.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vagrant/nginx/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vagrant/nginx/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/yiisoft/extensions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/yiisoft/extensions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/broker/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/src/CUDReceiver.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/CUDReceiver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_shop/src/services/ClientCatalogService.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/services/ClientCatalogService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-up.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker-up.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/.env" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/repositories/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/repositories/Database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/repositories/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/repositories/UsersRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/vendor/slim/slim/Slim/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/vendor/slim/slim/Slim/App.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +130,7 @@
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\config" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.consumer: Compose Deployment">
+  <component name="RunManager" selected="npm.serve">
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -178,19 +165,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.mongo: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="mongo" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="docker-compose.yml.shop: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -204,13 +178,23 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/admin_panel/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.serve" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.consumer: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.admin_panel: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.shop: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.mongo: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +229,7 @@
       <workItem from="1620653843127" duration="31897000" />
       <workItem from="1620748884344" duration="16000" />
       <workItem from="1620750104361" duration="4563000" />
-      <workItem from="1620764391333" duration="34065000" />
+      <workItem from="1620764391333" duration="66364000" />
     </task>
     <servers />
   </component>
@@ -285,10 +269,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620799076570" />
-    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1620605182331">
+    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1620837940820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620605182331" />
+    <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620837940820" />
     <state x="319" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1620225927034">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -297,10 +281,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="923" y="307" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620307594120" />
-    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620311543529">
+    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620847887252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620311543529" />
+    <state x="260" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620847887252" />
     <state x="423" y="472" width="444" height="266" key="ComposerInitDialogKey" timestamp="1619739976662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -321,10 +305,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1388" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619833036048" />
-    <state x="50" y="360" key="NewPhpClassDialog" timestamp="1620786733694">
+    <state x="827" y="360" key="NewPhpClassDialog" timestamp="1620837927542">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="50" y="360" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620786733694" />
+    <state x="827" y="360" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620837927542" />
     <state x="512" y="454" key="NewPhpFileDialog" timestamp="1620597347019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -333,10 +317,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="27" y="300" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619282342105" />
-    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620798270696">
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620846924755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620798270696" />
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620846924755" />
     <state x="1090" y="478" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620785630525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

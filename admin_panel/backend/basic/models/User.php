@@ -38,7 +38,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
     public static function findIdentityByAccessToken($token, $type = null)
     {
         foreach (self::$users as $user) {
-            if ($user['role'] === (string)$token->getClaim('data')['role']) {
+            if ($user['role'] === (string)$token->getClaim('data')->role) {
                 return new static($user);
             }
         }

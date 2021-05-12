@@ -74,6 +74,8 @@ class UsersRepository extends Database
             return false;
 
         $arrUser = $query->fetch(PDO::FETCH_ASSOC);
+        if (!$arrUser)
+            return false;
         $userEntity = new UserEntity();
         $userEntity->setLogin($arrUser['login']);
         $userEntity->setPassword($arrUser['password']);

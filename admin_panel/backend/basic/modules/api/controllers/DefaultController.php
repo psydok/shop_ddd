@@ -30,16 +30,15 @@ class DefaultController extends \yii\rest\Controller
     public function beforeAction($action)
     {
         $this->enableCsrfValidation = false;
-        $behaviors = parent::behaviors();
-        $behaviors['authenticator'] = [
-            'class' => JwtHttpBearerAuth::class
-        ];
         return parent::beforeAction($action);
     }
 
     public function behaviors()
     {
         $behaviors = parent::behaviors();
+        $behaviors['authenticator'] = [
+            'class' => JwtHttpBearerAuth::class,
+        ];
         $behaviors['corsFilter'] = [
             'class' => \yii\filters\Cors::class,
             'cors' => [

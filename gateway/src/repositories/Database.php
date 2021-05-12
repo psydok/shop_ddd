@@ -1,4 +1,5 @@
 <?php
+
 namespace app\repositories;
 
 use PDO;
@@ -9,6 +10,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 class Database
 {
     private $dbConnection;
+
     public function __construct()
     {
         $db = require __DIR__ . '/../../config/db.php';

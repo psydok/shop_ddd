@@ -20,6 +20,7 @@
           "~/.composer:/root/.composer",
           "~/.composer-docker/cache:/root/.composer/cache:delegated",
           "./admin_panel/backend/basic:/app:delegated",
+          "./admin_panel/backend/basic/docker/vhost.conf:/etc/apache2/sites-enabled/000-default.conf",
           "./admin_panel/backend/basic:/var/www"
       ],
       "ports": [
@@ -70,7 +71,7 @@
         "dockerfile": "Dockerfile-shop"
       },
       "ports": [
-          "${CLIENT_PORT_EXT}:${CLIENT_PORT_EXT}"
+          "${CLIENT_PORT_EXT}:${CLIENT_PORT_INT}"
       ],
       "env_file": ".env",
       "depends_on": [

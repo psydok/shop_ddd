@@ -36,7 +36,7 @@ class ClientCatalogService implements ClientServiceInterface
         try {
             $documentCategory = $this->collection->find()
                 ->fields(self::$returnedFields)
-                ->where('id', $id)
+                ->where('_id', $id)
                 ->findOne();
             return $documentCategory;
         } catch (\Exception $e) {

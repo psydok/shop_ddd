@@ -20,10 +20,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003eeead-79d0-4836-9cdd-16892614258a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/docker/ports.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/docker/vhost.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/models/JwtValidationData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/config/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/modules/api/controllers/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vagrant/nginx/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vagrant/nginx/app.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/yiisoft/extensions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_panel/backend/basic/vendor/yiisoft/extensions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/broker/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker/src/CUDReceiver.php" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/CUDReceiver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_shop/src/services/ClientCatalogService.php" beforeDir="false" afterPath="$PROJECT_DIR$/client_shop/src/services/ClientCatalogService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-up.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker-up.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/.env" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/controllers/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/controllers/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/models/UserEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/models/UserEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/repositories/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/repositories/Database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/repositories/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/repositories/UsersRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +97,10 @@
     </ExecCommand>
     <ExecCommand>
       <option name="command" value="bash" />
+      <option name="imageId" value="sha256:b52bead779aff14bafd77445342291d06c5c81359ce8dde1c6656e8eb141ae39" />
+    </ExecCommand>
+    <ExecCommand>
+      <option name="command" value="bash" />
       <option name="imageId" value="sha256:cb35cb99eef9e8dee9d900ca02313620a39ab6ba1459b9e44fe938da258dd418" />
     </ExecCommand>
     <ExecCommand>
@@ -99,19 +128,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\admin_panel\backend\basic\docker" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\admin_panel\backend\basic\docker\conf" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway\src" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway" />
+      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway\src" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop\backend\src\models" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop" />
       <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\config" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway\src" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\gateway" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\broker" />
-      <recent name="C:\Users\max\PhpstormProjects\docker_php_shop\client_shop\backend\src\services" />
     </key>
   </component>
   <component name="RunManager" selected="Docker.docker-compose.yml.consumer: Compose Deployment">
@@ -213,7 +242,10 @@
       <workItem from="1620397213437" duration="3337000" />
       <workItem from="1620485287296" duration="11130000" />
       <workItem from="1620579453980" duration="34051000" />
-      <workItem from="1620653843127" duration="3868000" />
+      <workItem from="1620653843127" duration="31897000" />
+      <workItem from="1620748884344" duration="16000" />
+      <workItem from="1620750104361" duration="4563000" />
+      <workItem from="1620764391333" duration="34065000" />
     </task>
     <servers />
   </component>
@@ -237,6 +269,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="369" y="372" key="#Docker/0.0.1920.1040@0.0.1920.1040" timestamp="1620239476779" />
+    <state x="196" y="210" key="#Inspections" timestamp="1620695887465">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="196" y="210" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1620695887465" />
     <state x="440" y="574" key="#Path_mapping" timestamp="1619282188257">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -245,10 +281,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1007" y="398" key="#Port_bindings/0.0.1920.1040@0.0.1920.1040" timestamp="1619900515424" />
-    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1620492285801">
+    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1620799076570">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620492285801" />
+    <state x="455" y="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620799076570" />
     <state x="325" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1620605182331">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -285,10 +321,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1388" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619833036048" />
-    <state x="416" y="323" key="NewPhpClassDialog" timestamp="1620601854240">
+    <state x="50" y="360" key="NewPhpClassDialog" timestamp="1620786733694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="416" y="323" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620601854240" />
+    <state x="50" y="360" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620786733694" />
     <state x="512" y="454" key="NewPhpFileDialog" timestamp="1620597347019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -297,10 +333,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="27" y="300" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619282342105" />
-    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620630017234">
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620798270696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620630017234" />
+    <state x="68" y="231" width="1362" height="626" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620798270696" />
+    <state x="1090" y="478" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620785630525">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1090" y="478" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620785630525" />
     <state x="479" y="391" key="refactoring.ChangeSignatureDialog" timestamp="1619388821143">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -6,8 +6,11 @@ use app\modules\api\models\CategoryRecord;
 use app\modules\api\models\ItemRecord;
 use app\modules\api\services\CategoryService;
 use app\modules\api\services\ItemService;
+use sizeg\jwt\JwtHttpBearerAuth;
 use Yii;
-use yii\web\Controller;
+use Firebase\JWT\JWT;
+use Firebase\JWT\SignatureInvalidException;
+use yii\filters\auth\HttpBearerAuth;
 
 /**
  * Default controller for the `api` module
@@ -27,6 +30,10 @@ class DefaultController extends \yii\rest\Controller
     public function beforeAction($action)
     {
         $this->enableCsrfValidation = false;
+        $behaviors = parent::behaviors();
+        $behaviors['authenticator'] = [
+            'class' => JwtHttpBearerAuth::class
+        ];
         return parent::beforeAction($action);
     }
 
@@ -115,7 +122,6 @@ class DefaultController extends \yii\rest\Controller
         $rawBody = $request->getRawBody();
 
         if ($request->isPost && !empty($rawBody)) {
-
             if ($this->checkTableCategory($objects)) {
                 $form = new CategoryRecord();
                 $service = $this->categoryService;

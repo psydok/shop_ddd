@@ -5,6 +5,7 @@
     "sokil/php-mongo": "^1.23",
     "ext-mongo": "*",
     "ext-pdo": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-curl": "*"
   }
 }

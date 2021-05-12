@@ -7,7 +7,7 @@ use Comet\Comet;
 
 $app = new Comet([
     'host' => '0.0.0.0',
-    'port' => getenv('CLIENT_PORT_EXT')
+    'port' => getenv('CLIENT_PORT_INT')
 ]);
 
 $app->setBasePath("/catalog");

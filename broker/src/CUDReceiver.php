@@ -80,31 +80,35 @@ class CUDReceiver
             $data = $object[$name_obj][$action];
             switch ($action) {
                 case 'insert':
-                    if ($name_obj == 'category') {
-                        $documentCategory = new DocumentCategory($collection);
-                        $documentCategory->id = $data['id'];
-                        $documentCategory->name = $data['name'];
-                        $res = $documentCategory->save();
-                    } else {
-                        $item = new StructItem([
-                            'id' => $data['id'],
-                            'name' => $data['name'],
-                            'price' => $data['price'],
-                            'img_link' => $data['img_link']
-                        ]);
-                        $documentCategory = $collection->find()->where('id', $data['category_id']['id'])->findOne();
-                        $documentCategory->push('items', $item);
-                        $res = $documentCategory->save();
+                    try {
+                        if ($name_obj == 'category') {
+                            $documentCategory = new DocumentCategory($collection);
+                            $documentCategory->_id = $data['id'];
+                            $documentCategory->name = $data['name'];
+                            $res = $documentCategory->save();
+                        } else {
+                            $item = new StructItem([
+                                'id' => $data['id'],
+                                'name' => $data['name'],
+                                'price' => $data['price'],
+                                'img_link' => $data['img_link']
+                            ]);
+                            $documentCategory = $collection->find()->where('_id', $data['category_id']['id'])->findOne();
+                            $documentCategory->push('items', $item);
+                            $res = $documentCategory->save();
+                        }
+                    } catch (\Throwable $exception) {
+                        echo '[x] Exists #' . '\n';
                     }
                     echo '[x] Inserted #' . $res . '\n';
                     break;
                 case'update':
                     if ($name_obj == 'category') {
-                        $documentCategory = $collection->find()->where('id', $data['id'])->findOne();
+                        $documentCategory = $collection->find()->where('_id', $data['id'])->findOne();
                         $documentCategory->name = $data['name'];
                         $documentCategory->save();
                     } else {
-                        $documentCategory = $collection->find()->where('id', $data['category_id']['id'])->findOne();
+                        $documentCategory = $collection->find()->where('_id', $data['category_id']['id'])->findOne();
                         $items = $documentCategory->getItems();
                         foreach ($items as $item) {
                             if ($item['id'] === $data['id']) {
@@ -119,7 +123,7 @@ class CUDReceiver
                                     )
                                 ));
 
-                                $collection->update(['id' => $data['category_id']['id']],
+                                $collection->update(['_id' => $data['category_id']['id']],
                                     $removeItem,
                                     array("multiple" => true));
 
@@ -133,7 +137,7 @@ class CUDReceiver
                     break;
                 case 'delete':
                     if ($name_obj == 'category') {
-                        $documentCategory = $collection->find()->where('id', $data['id'])->findOne();
+                        $documentCategory = $collection->find()->where('_id', $data['id'])->findOne();
                         $documentCategory->delete();
                         $documentCategory->save();
                     } else {
@@ -145,7 +149,7 @@ class CUDReceiver
                             )
                         );
                         $collection->update(
-                            ['id' => $data['category_id']['id']],
+                            ['_id' => $data['category_id']['id']],
                             $removeItem,
                             array("multiple" => true));
                     }

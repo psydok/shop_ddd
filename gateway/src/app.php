@@ -3,11 +3,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use app\controllers\DefaultController;
-use app\models\UserEntity;
-use app\repositories\UsersRepository;
 use Comet\Comet;
-use Comet\Request;
-use Comet\Response;
 
 $app = new Comet([
     'host' => '0.0.0.0',

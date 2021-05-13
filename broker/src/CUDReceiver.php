@@ -80,27 +80,46 @@ class CUDReceiver
             $data = $object[$name_obj][$action];
             switch ($action) {
                 case 'insert':
-                    try {
-                        if ($name_obj == 'category') {
+                    if ($name_obj == 'category') {
+                        try {
                             $documentCategory = new DocumentCategory($collection);
                             $documentCategory->_id = $data['id'];
                             $documentCategory->name = $data['name'];
+                            $documentCategory->items = array();
                             $res = $documentCategory->save();
-                        } else {
-                            $item = new StructItem([
-                                'id' => $data['id'],
-                                'name' => $data['name'],
-                                'price' => $data['price'],
-                                'img_link' => $data['img_link']
-                            ]);
-                            $documentCategory = $collection->find()->where('_id', $data['category_id']['id'])->findOne();
-                            $documentCategory->push('items', $item);
-                            $res = $documentCategory->save();
+                        } catch (\Throwable $e) {
                         }
-                    } catch (\Throwable $exception) {
-                        echo '[x] Exists #' . '\n';
+                    } else {
+
+                        $newItem = new StructItem([
+                            'id' => $data['id'],
+                            'name' => $data['name'],
+                            'price' => $data['price'],
+                            'img_link' => $data['img_link']
+                        ]);
+                        $documentCategory = $collection->find()->where('_id', $data['category_id']['id'])->findOne();
+                        $isExist = false;
+                        try {
+                            $items = $documentCategory->getItems();
+                            if (count($items) > 0)
+                                foreach ($items as $existItem) {
+                                    if ($existItem['id'] === $data['id']) {
+                                        $isExist = true;
+                                        break;
+                                    }
+                                }
+                        } catch (\Throwable $exception) {
+                            echo $exception->getMessage() . " - Нет элементов \n";
+                        }
+                        if ($isExist) {
+                            echo '[x] Exists #' . "\n";
+                            break;
+                        }
+                        $documentCategory->push('items', $newItem);
+                        $res = $documentCategory->save();
+
                     }
-                    echo '[x] Inserted #' . $res . '\n';
+                    echo '[x] Inserted #' . $res . "\n";
                     break;
                 case'update':
                     if ($name_obj == 'category') {
@@ -133,7 +152,7 @@ class CUDReceiver
                             }
                         }
                     }
-                    echo '[x] Updated \n';
+                    echo '[x] Updated ' . "\n";;
                     break;
                 case 'delete':
                     if ($name_obj == 'category') {
@@ -153,11 +172,13 @@ class CUDReceiver
                             $removeItem,
                             array("multiple" => true));
                     }
-                    echo '[x] Deleted \n';
+                    echo '[x] Deleted ' . "\n";;
                     break;
                 default:
                     break;
             }
+            $json->delivery_info['channel']->basic_ack($json->delivery_info['delivery_tag']);
+
         };
 
         $channel->basic_consume(
@@ -172,7 +193,8 @@ class CUDReceiver
         while (count($channel->callbacks)) {
             try {
                 $channel->wait();
-            } catch (AMQPTimeoutException $exception) {
+            } catch
+            (AMQPTimeoutException $exception) {
                 echo $exception->getMessage();
             }
         }

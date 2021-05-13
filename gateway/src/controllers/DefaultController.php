@@ -68,7 +68,10 @@ class DefaultController
                     "jwt" => $jwt,
                     "code" => 200
                 ]);
+                $cookie = 'token=' . urlencode($jwt) . '; path=/; secure; httponly';
+                $newResponse->withAddedHeader('Set-Cookie', $cookie);
                 $newResponse->getBody()->write($body);
+
                 return $newResponse->withStatus(200);
             }
             $newResponse->getBody()->write(json_encode([

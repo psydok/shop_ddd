@@ -136,5 +136,14 @@
           "shop"
       ]
     },
+    "front": {
+      "build": {
+        "context": "./frontend",
+        "dockerfile": "Dockerfile-front"
+      },
+      "ports": [
+          "${FRONT_PORT}:${FRONT_PORT}"
+      ]
+    }
   }
 }

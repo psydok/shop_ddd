@@ -19,9 +19,9 @@
       "volumes": [
           "~/.composer:/root/.composer",
           "~/.composer-docker/cache:/root/.composer/cache:delegated",
-          "./admin_panel/backend/basic:/app:delegated",
-          "./admin_panel/backend/basic/docker/vhost.conf:/etc/apache2/sites-available/000-default.conf",
-          "./admin_panel/backend/basic:/var/www"
+          "./basic:/app:delegated",
+          "./basic/docker/vhost.conf:/etc/apache2/sites-available/000-default.conf",
+          "./basic:/var/www"
       ],
       "ports": [
           "${YII_POST_EXT}:${YII_POST_INT}"
@@ -67,7 +67,7 @@
     },
     "shop": {
       "build": {
-        "context": "./client_shop",
+        "context": "./market",
         "dockerfile": "Dockerfile-shop"
       },
       "ports": [

@@ -53,6 +53,7 @@ export default {
         is_admin: this.is_admin
       }
       this.REGISTER([this.login, this.password])
+          .then((response) => this.$router.push('/'))
           .catch((err) => this.error = err);
     }
   }

@@ -85,12 +85,10 @@ class CUDReceiver
                             $documentCategory = new DocumentCategory($collection);
                             $documentCategory->_id = $data['id'];
                             $documentCategory->name = $data['name'];
-                            $documentCategory->items = array();
                             $res = $documentCategory->save();
                         } catch (\Throwable $e) {
                         }
                     } else {
-
                         $newItem = new StructItem([
                             'id' => $data['id'],
                             'name' => $data['name'],

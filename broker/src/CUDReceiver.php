@@ -87,6 +87,7 @@ class CUDReceiver
                             $documentCategory->name = $data['name'];
                             $res = $documentCategory->save();
                         } catch (\Throwable $e) {
+                            echo $e->getMessage();
                         }
                     } else {
                         $newItem = new StructItem([
@@ -107,15 +108,15 @@ class CUDReceiver
                                     }
                                 }
                         } catch (\Throwable $exception) {
-                            echo $exception->getMessage() . " - Нет элементов \n";
+                            echo " - Нет товаров, сейчас добавим \n";
                         }
+
                         if ($isExist) {
                             echo '[x] Exists #' . "\n";
                             break;
                         }
                         $documentCategory->push('items', $newItem);
                         $res = $documentCategory->save();
-
                     }
                     echo '[x] Inserted #' . $res . "\n";
                     break;
@@ -125,29 +126,43 @@ class CUDReceiver
                         $documentCategory->name = $data['name'];
                         $documentCategory->save();
                     } else {
-                        $documentCategory = $collection->find()->where('_id', $data['category_id']['id'])->findOne();
-                        $items = $documentCategory->getItems();
-                        foreach ($items as $item) {
-                            if ($item['id'] === $data['id']) {
-                                $updatedItem = new StructItem($item);
-                                $updatedItem->setName($data['name']);
-                                $updatedItem->setPrice((float)$data['price']);
-                                $updatedItem->setImgLink($data['img_link']);
+                        $documentsCategory = $collection->find()->all();
+                        $isUpdated = false;
+                        foreach ($documentsCategory as $document) {
+                            $items = $document->getItems();
 
-                                $removeItem = array('$pull' => array(
-                                    'items' => array(
-                                        'id' => $data['id'],
-                                    )
-                                ));
+                            foreach ($items as $item) {
+                                if ($item['id'] === $data['id']) {
+                                    $updatedItem = new StructItem($item);
+                                    $updatedItem->setName($data['name']);
+                                    $updatedItem->setPrice((float)$data['price']);
+                                    $updatedItem->setImgLink($data['img_link']);
 
-                                $collection->update(['_id' => $data['category_id']['id']],
-                                    $removeItem,
-                                    array("multiple" => true));
+                                    $removeItem = array('$pull' => array(
+                                        'items' => array(
+                                            'id' => $data['id'],
+                                        )
+                                    ));
 
-                                $documentCategory->push('items', $updatedItem);
-                                $documentCategory->save();
-                                break;
+                                    $collection->update(['_id' => $document->_id],
+                                        $removeItem,
+                                        array("multiple" => true));
+
+                                    $documentCategory = $collection->find()
+                                        ->where('_id', $data['category_id']['id'])
+                                        ->findOne();
+
+                                    $documentCategory->push('items', $updatedItem);
+                                    $documentCategory->save();
+                                    $isUpdated = true;
+                                    break;
+                                }
                             }
+                        }
+
+                        if (!$isUpdated) {
+                            echo '[x] No updated ' . "\n";
+                            break;
                         }
                     }
                     echo '[x] Updated ' . "\n";;
@@ -176,7 +191,6 @@ class CUDReceiver
                     break;
             }
             $json->delivery_info['channel']->basic_ack($json->delivery_info['delivery_tag']);
-
         };
 
         $channel->basic_consume(

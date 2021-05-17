@@ -15,42 +15,21 @@ $app->add(\app\middleware\CorsMiddleware::class);
 $app->addRoutingMiddleware();
 
 $app->options('/{routes:.+}', function ($request, $response, $args) {
-    $response = $response
-        ->withHeader('Access-Control-Allow-Origin', '*')
-        ->withHeader('Access-Control-Allow-Headers', '*');
     return $response;
 });
 
 //---------------------------user---------------------------//
 
 $app->post('/auth',
-    'app\controllers\DefaultController:getAuth');
+    'app\controllers\DefaultController:login');
 $app->post('/register',
-    'app\controllers\DefaultController:createUser');
+    'app\controllers\DefaultController:register');
 
-//---------------------------admin---------------------------//
-$app->get('/admin',
-    'app\controllers\DefaultController:getGatewayResp');
-$app->get('/admin/{path}',
-    'app\controllers\DefaultController:getGatewayResp');
-$app->get('/admin/{path}/{id}',
-    'app\controllers\DefaultController:getGatewayResp');
-$app->post('/admin/{path}',
-    'app\controllers\DefaultController:getGatewayResp');
-$app->put('/admin/{path}/{id}',
-    'app\controllers\DefaultController:getGatewayResp');
-$app->delete('/admin/{path}/{id}',
+//---------------------------services------------------------//
+$app->any('/{routes:.+}',
     'app\controllers\DefaultController:getGatewayResp');
 
-//---------------------------shop---------------------------//
-$app->get('/catalog',
-    'app\controllers\DefaultController:getGatewayResp');
-$app->get('/catalog/{path}',
-    'app\controllers\DefaultController:getGatewayResp');
-$app->get('/catalog/{path}/{id}',
-    'app\controllers\DefaultController:getGatewayResp');
-
-//---------------------------start---------------------------//
+//-----------------------------------------------------------//
 $app->run();
 
 

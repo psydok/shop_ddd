@@ -22,7 +22,7 @@ class DefaultController
     private static string $SHOP = 'http://shop:';
     private static string $ADMIN = 'http://admin_panel:';
 
-    public function createUser(Request $request, Response $response, $args)
+    public function register(Request $request, Response $response, $args)
     {
         $newResponse = $response
             ->withHeader('Content-Type', 'application/json');
@@ -50,7 +50,7 @@ class DefaultController
         return $newResponse->withStatus(200);
     }
 
-    public function getAuth(Request $request, Response $response, $args)
+    public function login(Request $request, Response $response, $args)
     {
         $newResponse = $response
             ->withHeader('Content-Type', 'application/json');
